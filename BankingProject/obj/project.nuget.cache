@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ICMIYN5pQD+Dbr8lZYzOf+b7qIB9e5wS78QxwYVQGPucmkwaFiifeQNxp+IetT4rz5yWfZKoK3sMy4ll7e6skQ==",
+  "dgSpecHash": "iRg6q00XgD4SyRYvri5bF/x5gu74szRdWssEpUibV8X6OY5p/GKUl1R0Ga18l/dewsPwFvW83V6sb34UdvMKKA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alexp\\source\\repos\\BankingProject\\BankingProject\\BankingProject.csproj",
+  "projectFilePath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\BankingProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexp\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.12\\microsoft.aspnetcore.cryptography.internal.3.1.12.nupkg.sha512",
     "C:\\Users\\alexp\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.12\\microsoft.aspnetcore.cryptography.keyderivation.3.1.12.nupkg.sha512",
