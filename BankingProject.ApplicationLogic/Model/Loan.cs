@@ -12,6 +12,6 @@ namespace BankingProject.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public float LunarFee { get; set; }
-        public Costumer Costumer { get; set; }
+        public Customer Costumer { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BankingProject.Models
 {
-    public class Costumer
+    public class Customer
     {
         public int CostumerId { get; set; }
         public string FirstName { get; set; }

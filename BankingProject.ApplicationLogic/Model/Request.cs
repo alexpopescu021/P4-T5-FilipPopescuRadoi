@@ -10,6 +10,6 @@ namespace BankingProject.Models
         public int RequestId { get; set; }
         public string Type { get; set; }
         public DateTime SendDate { get; set; }
-        public Costumer Costumer { get; set; }
+        public Customer Costumer { get; set; }
     }
 }
