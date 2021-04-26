@@ -2764,6 +2764,48 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "BankingProject.ApplicationLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5"
+        },
+        "compile": {
+          "bin/placeholder/BankingProject.ApplicationLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankingProject.ApplicationLogic.dll": {}
+        }
+      },
+      "BankingProject.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "BankingProject.ApplicationLogic": "1.0.0",
+          "BankingProject.DataAccess.Abstractions": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "3.1.12",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5"
+        },
+        "compile": {
+          "bin/placeholder/BankingProject.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankingProject.DataAccess.dll": {}
+        }
+      },
+      "BankingProject.DataAccess.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "BankingProject.ApplicationLogic": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BankingProject.DataAccess.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankingProject.DataAccess.Abstractions.dll": {}
+        }
       }
     }
   },
@@ -8958,10 +9000,27 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "BankingProject.ApplicationLogic/1.0.0": {
+      "type": "project",
+      "path": "../BankingProject.ApplicationLogic/BankingProject.ApplicationLogic.csproj",
+      "msbuildProject": "../BankingProject.ApplicationLogic/BankingProject.ApplicationLogic.csproj"
+    },
+    "BankingProject.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../BankingProject.DataAccess/BankingProject.DataAccess.csproj",
+      "msbuildProject": "../BankingProject.DataAccess/BankingProject.DataAccess.csproj"
+    },
+    "BankingProject.DataAccess.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../BankingProject.DataAccess.Abstractions/BankingProject.DataAccess.Abstractions.csproj",
+      "msbuildProject": "../BankingProject.DataAccess.Abstractions/BankingProject.DataAccess.Abstractions.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "BankingProject.ApplicationLogic >= 1.0.0",
+      "BankingProject.DataAccess >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.12",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.12",
       "Microsoft.AspNetCore.Identity.UI >= 3.1.12",
@@ -9002,7 +9061,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj": {
+              "projectPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj"
+            },
+            "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess\\BankingProject.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess\\BankingProject.DataAccess.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

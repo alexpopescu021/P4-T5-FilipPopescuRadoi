@@ -1,13 +1,13 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BankingProject.Models
+namespace BankingProject.Model
 {
-    public class Request
+    public class Request : DataEntity
     {
-        public int RequestId { get; set; }
         public string Type { get; set; }
         public DateTime SendDate { get; set; }
         public Customer Costumer { get; set; }
