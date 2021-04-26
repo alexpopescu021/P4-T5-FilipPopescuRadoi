@@ -1,4 +1,5 @@
 using BankingProject.Data;
+using BankingProject.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,10 @@ namespace BankingProject
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddDbContext<BankingDbContext>(options =>
+                options.UseSqlServer(
+                        Configuration.GetConnectionString("BankingConnection")));
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

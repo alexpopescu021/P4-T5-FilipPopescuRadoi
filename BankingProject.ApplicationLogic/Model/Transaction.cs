@@ -1,13 +1,14 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BankingProject.Models
+namespace BankingProject.Model
 {
-    public class Transaction
+    public class Transaction : DataEntity
     {
-        public int TransactionId { get; set; }
+       
         public string ExternalIBAN { get; set; }
         public string ExternalName { get; set; }
         public float Amount { get; set; }

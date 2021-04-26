@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BankingProject.Data;
-using BankingProject.Models;
+using BankingProject.Model;
 
 namespace BankingProject.Controllers
 {
@@ -86,9 +86,11 @@ namespace BankingProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BankAccountId,IBAN,Balance,Currency,LastTransactionDate")] BankAccount bankAccount)
+        public async Task<IActionResult> Edit(string id, [Bind("BankAccountId,IBAN,Balance,Currency,LastTransactionDate")] BankAccount bankAccount)
         {
-            if (id != bankAccount.BankAccountId)
+            var bankID = Guid.Empty;
+            Guid.TryParse(id, out bankID);
+            if (bankID != bankAccount.Id)
             {
                 return NotFound();
             }
@@ -102,7 +104,7 @@ namespace BankingProject.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BankAccountExists(bankAccount.BankAccountId))
+                    if (!BankAccountExists(bankAccount.Id))
                     {
                         return NotFound();
                     }
@@ -145,7 +147,7 @@ namespace BankingProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BankAccountExists(int id)
+        private bool BankAccountExists(Guid id)
         {
             return _context.BankAccounts.Any(e => e.BankAccountId == id);
         }

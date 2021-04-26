@@ -468,3 +468,11 @@ C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\net
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Transactions\Details.cshtml.g.cs
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Transactions\Edit.cshtml.g.cs
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Transactions\Index.cshtml.g.cs
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\BankingProject.csprojAssemblyReference.cache
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\BankingProject.AssemblyInfoInputs.cache
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\BankingProject.AssemblyInfo.cs
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\BankingProject.csproj.CoreCompileInputs.cache
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\BankingProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\BankingProject.RazorAssemblyInfo.cache
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\BankingProject.RazorAssemblyInfo.cs
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\BankingProject.pdb

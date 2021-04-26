@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BankingProject.Data;
 using BankingProject.Models;
+using BankingProject.DataAccess;
 
 namespace BankingProject.Controllers
 {
-    public class CostumersController : Controller
+    public class CustomersController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly BankingDbContext _context;
 
-        public CostumersController(ApplicationDbContext context)
+        public CustomersController(BankingDbContext context)
         {
             _context = context;
         }
@@ -22,7 +23,7 @@ namespace BankingProject.Controllers
         // GET: Costumers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Costumers.ToListAsync());
+            return View(await _context.Customers.ToListAsync());
         }
 
         // GET: Costumers/Details/5
