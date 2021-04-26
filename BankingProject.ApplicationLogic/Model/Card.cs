@@ -1,13 +1,14 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BankingProject.Models
+namespace BankingProject.Model
 {
-    public class Card
+    public class Card : DataEntity
     {
-        public int CardId { get; set; }
+       
         public string SerialNumber { get; set; }
         public int CVV { get; set; }
         public DateTime CreateDate { get; set; }

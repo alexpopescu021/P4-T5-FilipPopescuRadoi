@@ -2764,6 +2764,19 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "BankingProject.ApplicationLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5"
+        },
+        "compile": {
+          "bin/placeholder/BankingProject.ApplicationLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankingProject.ApplicationLogic.dll": {}
+        }
       }
     }
   },
@@ -8958,10 +8971,16 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "BankingProject.ApplicationLogic/1.0.0": {
+      "type": "project",
+      "path": "../BankingProject.ApplicationLogic/BankingProject.ApplicationLogic.csproj",
+      "msbuildProject": "../BankingProject.ApplicationLogic/BankingProject.ApplicationLogic.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "BankingProject.ApplicationLogic >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.12",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.12",
       "Microsoft.AspNetCore.Identity.UI >= 3.1.12",
@@ -8972,19 +8991,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alina\\.nuget\\packages\\": {}
+    "C:\\Users\\alexp\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\BankingProject.csproj",
+      "projectUniqueName": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\BankingProject.csproj",
       "projectName": "BankingProject",
-      "projectPath": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\BankingProject.csproj",
-      "packagesPath": "C:\\Users\\Alina\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\obj\\",
+      "projectPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\BankingProject.csproj",
+      "packagesPath": "C:\\Users\\alexp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Alina\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alexp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8997,7 +9021,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj": {
+              "projectPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

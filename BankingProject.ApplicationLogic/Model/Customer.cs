@@ -1,13 +1,14 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BankingProject.Models
+namespace BankingProject.Model
 {
-    public class Costumer
+    public class Customer : DataEntity
     {
-        public int CostumerId { get; set; }
+        public Guid UserId { get; private set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int SocialId { get; set; }

@@ -7,14 +7,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BankingProject.Data;
 using BankingProject.Models;
+using BankingProject.DataAccess;
 
 namespace BankingProject.Controllers
 {
     public class CardTransactionsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly BankingDbContext _context;
 
-        public CardTransactionsController(ApplicationDbContext context)
+
+        public CardTransactionsController(BankingDbContext context)
         {
             _context = context;
         }

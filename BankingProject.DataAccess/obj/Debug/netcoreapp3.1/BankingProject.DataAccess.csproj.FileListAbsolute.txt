@@ -7,3 +7,9 @@ C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.DataAccess\ob
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.DataAccess\obj\Debug\netcoreapp3.1\BankingProject.DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.DataAccess\obj\Debug\netcoreapp3.1\BankingProject.DataAccess.dll
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.DataAccess\obj\Debug\netcoreapp3.1\BankingProject.DataAccess.pdb
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.DataAccess\bin\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.dll
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.DataAccess\bin\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.pdb
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.DataAccess\obj\Debug\netcoreapp3.1\BankingProject.DataAccess.csprojAssemblyReference.cache
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.DataAccess\obj\Debug\netcoreapp3.1\BankingProject.DataAccess.AssemblyInfoInputs.cache
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.DataAccess\obj\Debug\netcoreapp3.1\BankingProject.DataAccess.AssemblyInfo.cs
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.DataAccess\obj\Debug\netcoreapp3.1\BankingProject.DataAccess.pdb

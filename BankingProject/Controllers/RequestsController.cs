@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BankingProject.Data;
 using BankingProject.Models;
+using BankingProject.DataAccess;
 
 namespace BankingProject.Controllers
 {
     public class RequestsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly BankingDbContext _context;
 
-        public RequestsController(ApplicationDbContext context)
+        public RequestsController(BankingDbContext context)
         {
             _context = context;
         }
