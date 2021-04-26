@@ -14,6 +14,6 @@ namespace BankingProject.Models
         public string PhoneNo { get; set; }
         public string AlternatePhoneNo { get; set; }
         public string Email { get; set; }
-        public ICollection<Costumer> Costumers { get; set; }
+        public ICollection<Customer> Costumers { get; set; }
     }
 }
