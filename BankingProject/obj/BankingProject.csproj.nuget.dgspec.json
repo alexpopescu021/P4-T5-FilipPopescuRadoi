@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alexp\\source\\repos\\BankingProject\\BankingProject\\BankingProject.csproj": {}
+    "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\BankingProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alexp\\source\\repos\\BankingProject\\BankingProject\\BankingProject.csproj": {
+    "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\BankingProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alexp\\source\\repos\\BankingProject\\BankingProject\\BankingProject.csproj",
+        "projectUniqueName": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\BankingProject.csproj",
         "projectName": "BankingProject",
-        "projectPath": "C:\\Users\\alexp\\source\\repos\\BankingProject\\BankingProject\\BankingProject.csproj",
-        "packagesPath": "C:\\Users\\alexp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alexp\\source\\repos\\BankingProject\\BankingProject\\obj\\",
+        "projectPath": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\BankingProject.csproj",
+        "packagesPath": "C:\\Users\\Alina\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\alexp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Alina\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -62,11 +58,17 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.12, )"
+              "version": "[3.1.13, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.12, )"
+              "version": "[3.1.13, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
             }
           },
           "imports": [
