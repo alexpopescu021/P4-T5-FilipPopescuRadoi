@@ -1,7 +1,7 @@
 ﻿
 using BankingProject.DataAccess;
-using BankingProject.DataAccess.Abstractions;
-using BankingProject.Model;
+using BankingProject.ApplicationLogic.Abstractions;
+using BankingProject.ApplicationLogic.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
