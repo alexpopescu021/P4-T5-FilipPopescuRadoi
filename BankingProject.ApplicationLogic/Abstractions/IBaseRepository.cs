@@ -1,8 +1,8 @@
-﻿using BankingProject.Model
+﻿using BankingProject.ApplicationLogic.Model;
 using System;
 using System.Collections.Generic;
 
-namespace BankingProject.DataAccess.Abstractions
+namespace BankingProject.ApplicationLogic.Abstractions
 {
     public interface IBaseRepository<T> where T : DataEntity
     {

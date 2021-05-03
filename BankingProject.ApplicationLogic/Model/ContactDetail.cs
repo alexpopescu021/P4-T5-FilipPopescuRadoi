@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BankingProject.Model
+namespace BankingProject.ApplicationLogic.Model
 {
-    public class ContactDetail
+    public class ContactDetail: DataEntity
     {
-        public int ContactDetailId { get; set; }
         public string Adress { get; set; }
         public string City { get; set; }
         public string Country { get; set; }

@@ -5,16 +5,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BankingProject.Data;
-using BankingProject.Models;
+using BankingProject.ApplicationLogic.Model;
+using BankingProject.DataAccess;
 
 namespace BankingProject.Controllers
 {
     public class CardTransactionsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly BankingDbContext _context;
 
-        public CardTransactionsController(ApplicationDbContext context)
+
+        public CardTransactionsController(BankingDbContext context)
         {
             _context = context;
         }
@@ -26,7 +27,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: CardTransactions/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -34,7 +35,7 @@ namespace BankingProject.Controllers
             }
 
             var cardTransaction = await _context.CardTransactions
-                .FirstOrDefaultAsync(m => m.CardTransactionId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (cardTransaction == null)
             {
                 return NotFound();
@@ -86,9 +87,9 @@ namespace BankingProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CardTransactionId,ExternalIBAN,ExternalName,Amount,Time,Details,Status")] CardTransaction cardTransaction)
+        public async Task<IActionResult> Edit(Guid id, [Bind("CardTransactionId,ExternalIBAN,ExternalName,Amount,Time,Details,Status")] CardTransaction cardTransaction)
         {
-            if (id != cardTransaction.CardTransactionId)
+            if (id != cardTransaction.Id)
             {
                 return NotFound();
             }
@@ -102,7 +103,7 @@ namespace BankingProject.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CardTransactionExists(cardTransaction.CardTransactionId))
+                    if (!CardTransactionExists(cardTransaction.Id))
                     {
                         return NotFound();
                     }
@@ -117,7 +118,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: CardTransactions/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
@@ -125,7 +126,7 @@ namespace BankingProject.Controllers
             }
 
             var cardTransaction = await _context.CardTransactions
-                .FirstOrDefaultAsync(m => m.CardTransactionId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (cardTransaction == null)
             {
                 return NotFound();
@@ -145,9 +146,9 @@ namespace BankingProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CardTransactionExists(int id)
+        private bool CardTransactionExists(Guid id)
         {
-            return _context.CardTransactions.Any(e => e.CardTransactionId == id);
+            return _context.CardTransactions.Any(e => e.Id == id);
         }
     }
 }

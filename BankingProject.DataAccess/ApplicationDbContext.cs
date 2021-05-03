@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BankingProject.Data
+namespace BankingProject.DataAccess
 {
     public class ApplicationDbContext : IdentityDbContext
     {

@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BankingProject.Data;
-using BankingProject.Models;
+using BankingProject.ApplicationLogic.Model;
 using BankingProject.DataAccess;
 
 namespace BankingProject.Controllers
@@ -23,11 +22,11 @@ namespace BankingProject.Controllers
         // GET: Costumers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customers.ToListAsync());
+            return View(await _context.Costumers.ToListAsync());
         }
 
         // GET: Costumers/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -35,7 +34,7 @@ namespace BankingProject.Controllers
             }
 
             var costumer = await _context.Costumers
-                .FirstOrDefaultAsync(m => m.CostumerId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (costumer == null)
             {
                 return NotFound();
@@ -55,7 +54,7 @@ namespace BankingProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CostumerId,FirstName,LastName,SocialId")] Costumer costumer)
+        public async Task<IActionResult> Create([Bind("CostumerId,FirstName,LastName,SocialId")] Customer costumer)
         {
             if (ModelState.IsValid)
             {
@@ -87,9 +86,9 @@ namespace BankingProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CostumerId,FirstName,LastName,SocialId")] Costumer costumer)
+        public async Task<IActionResult> Edit(Guid id, [Bind("CostumerId,FirstName,LastName,SocialId")] Customer costumer)
         {
-            if (id != costumer.CostumerId)
+            if (id != costumer.Id)
             {
                 return NotFound();
             }
@@ -103,7 +102,7 @@ namespace BankingProject.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CostumerExists(costumer.CostumerId))
+                    if (!CostumerExists(costumer.Id))
                     {
                         return NotFound();
                     }
@@ -118,7 +117,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: Costumers/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
@@ -126,7 +125,7 @@ namespace BankingProject.Controllers
             }
 
             var costumer = await _context.Costumers
-                .FirstOrDefaultAsync(m => m.CostumerId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (costumer == null)
             {
                 return NotFound();
@@ -146,9 +145,9 @@ namespace BankingProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CostumerExists(int id)
+        private bool CostumerExists(Guid id)
         {
-            return _context.Costumers.Any(e => e.CostumerId == id);
+            return _context.Costumers.Any(e => e.Id == id);
         }
     }
 }

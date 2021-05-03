@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BankingProject.Data;
-using BankingProject.Model;
+using BankingProject.DataAccess;
+using BankingProject.ApplicationLogic.Model;
+using BankingProject;
 
 namespace BankingProject.Controllers
 {
     public class BankAccountsController : Controller
     {
-        private readonly ApplicationDbContext _context;
-
-        public BankAccountsController(ApplicationDbContext context)
+        private readonly BankingDbContext _context;
+        public BankAccountsController(BankingDbContext context)
         {
             _context = context;
         }
@@ -26,7 +26,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: BankAccounts/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -34,7 +34,7 @@ namespace BankingProject.Controllers
             }
 
             var bankAccount = await _context.BankAccounts
-                .FirstOrDefaultAsync(m => m.BankAccountId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (bankAccount == null)
             {
                 return NotFound();
@@ -119,7 +119,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: BankAccounts/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
@@ -127,7 +127,7 @@ namespace BankingProject.Controllers
             }
 
             var bankAccount = await _context.BankAccounts
-                .FirstOrDefaultAsync(m => m.BankAccountId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (bankAccount == null)
             {
                 return NotFound();
@@ -149,7 +149,7 @@ namespace BankingProject.Controllers
 
         private bool BankAccountExists(Guid id)
         {
-            return _context.BankAccounts.Any(e => e.BankAccountId == id);
+            return _context.BankAccounts.Any(e => e.Id == id);
         }
     }
 }

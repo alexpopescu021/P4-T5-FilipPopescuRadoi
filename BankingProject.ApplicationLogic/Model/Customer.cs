@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BankingProject.Model
+namespace BankingProject.ApplicationLogic.Model
 {
     public class Customer : DataEntity
     {
-        public Guid UserId { get; private set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int SocialId { get; set; }
