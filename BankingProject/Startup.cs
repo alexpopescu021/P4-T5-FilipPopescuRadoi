@@ -1,4 +1,7 @@
+using BankingProject.ApplicationLogic.Abstractions;
+using BankingProject.ApplicationLogic.Services;
 using BankingProject.DataAccess;
+using BankingProject.DataAccess.Repos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,17 +30,29 @@ namespace BankingProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BankingDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<BankingDbContext>();
+            
 
             services.AddDbContext<BankingDbContext>(options =>
-                options.UseSqlServer(
+                options.UseLazyLoadingProxies().UseSqlServer(
                         Configuration.GetConnectionString("BankingConnection")));
+
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<IPersistenceContext, EFPersistenceContext>();
+            services.AddScoped<CustomerService>();
+            services.AddScoped<AccountsService>();
+
+            services.AddScoped<PaymentsService>();
+
+            services.AddScoped<CardServices>();
+
             services.AddControllersWithViews();
-            services.AddRazorPages();
+            services.AddRazorPages()
+                .AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

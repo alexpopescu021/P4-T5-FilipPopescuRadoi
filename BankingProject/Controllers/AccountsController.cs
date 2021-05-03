@@ -40,18 +40,18 @@ namespace BankingProject.Controllers
             try
             {
                 var customer = customerService.GetCustomerFromUserId(userId);
-                List<BankAccountViewModel> accountViewModels = new List<BankAccountViewModel>();
+                List<BankAccountViewModel> accountViewApplicationLogic = new List<BankAccountViewModel>();
 
                 foreach (var bankAccount in customer.BankAccounts)
                 {
-                    accountViewModels.Add(new BankAccountViewModel
+                    accountViewApplicationLogic.Add(new BankAccountViewModel
                     {
                         BankAccount = bankAccount
                     });
                 }
                 AccountsListViewModel viewModel = new AccountsListViewModel()
                 {
-                    BankAccounts = accountViewModels,
+                    BankAccounts = accountViewApplicationLogic,
                     CustomerName = $"{customer.FirstName} {customer.LastName}",
                     PhoneNo = customer.ContactDetails?.PhoneNo
                 };
