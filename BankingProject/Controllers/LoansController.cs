@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BankingProject.Data;
-using BankingProject.Models;
+using BankingProject.ApplicationLogic.Model;
+using BankingProject.DataAccess;
 
 namespace BankingProject.Controllers
 {
     public class LoansController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly BankingDbContext _context;
 
-        public LoansController(ApplicationDbContext context)
+        public LoansController(BankingDbContext context)
         {
             _context = context;
         }
@@ -26,7 +26,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: Loans/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -34,7 +34,7 @@ namespace BankingProject.Controllers
             }
 
             var loan = await _context.Loans
-                .FirstOrDefaultAsync(m => m.LoanId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (loan == null)
             {
                 return NotFound();
@@ -86,9 +86,9 @@ namespace BankingProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("LoanId,Value,StartDate,EndDate,LunarFee")] Loan loan)
+        public async Task<IActionResult> Edit(Guid id, [Bind("LoanId,Value,StartDate,EndDate,LunarFee")] Loan loan)
         {
-            if (id != loan.LoanId)
+            if (id != loan.Id)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace BankingProject.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LoanExists(loan.LoanId))
+                    if (!LoanExists(loan.Id))
                     {
                         return NotFound();
                     }
@@ -117,7 +117,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: Loans/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
@@ -125,7 +125,7 @@ namespace BankingProject.Controllers
             }
 
             var loan = await _context.Loans
-                .FirstOrDefaultAsync(m => m.LoanId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (loan == null)
             {
                 return NotFound();
@@ -145,9 +145,9 @@ namespace BankingProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool LoanExists(int id)
+        private bool LoanExists(Guid id)
         {
-            return _context.Loans.Any(e => e.LoanId == id);
+            return _context.Loans.Any(e => e.Id == id);
         }
     }
 }

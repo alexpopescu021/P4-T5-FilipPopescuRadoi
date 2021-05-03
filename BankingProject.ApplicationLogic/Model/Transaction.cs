@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BankingProject.Model
+namespace BankingProject.ApplicationLogic.Model
 {
     public class Transaction : DataEntity
     {
-       
         public string ExternalIBAN { get; set; }
         public string ExternalName { get; set; }
         public float Amount { get; set; }

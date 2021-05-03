@@ -1,5 +1,5 @@
-﻿using BankingProject.DataAccess.Abstractions;
-using BankingProject.Model;
+﻿using BankingProject.ApplicationLogic.Abstractions;
+using BankingProject.ApplicationLogic.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace BankingProject.DataAccess.Repos
 
         public IEnumerable<Customer> FindByLastName(string lastName)
         {
-            var customersList = dbContext.Customers
+            var customersList = dbContext.Costumers
                                 .Where(customer =>
                                             customer.LastName
                                             .ToLower()
@@ -26,7 +26,7 @@ namespace BankingProject.DataAccess.Repos
 
         public IEnumerable<Customer> GetCustomerstWithBankAccounts()
         {
-            return dbContext.Customers
+            return dbContext.Costumers
                                 .Where(customer =>
                                 customer.BankAccounts.Count() > 0);
         }
@@ -34,11 +34,11 @@ namespace BankingProject.DataAccess.Repos
 
         public Customer GetCustomerByUserId(Guid userId)
         {
-            var foundCustomer = dbContext.Customers
+            var foundCustomer = dbContext.Costumers
                                 /* .Include(c => c.ContactDetails)
                                  .Include(c => c.BankAccounts)
                                  .Include(c => c.BankAccounts.Select(ba => ba.Transactions))*/
-                                .Where(customer => customer.UserId == userId)
+                                .Where(customer => customer.Id == userId)
                                 .FirstOrDefault();
             return foundCustomer;
         }
@@ -60,7 +60,7 @@ namespace BankingProject.DataAccess.Repos
             if (bankAccount != null)
             {
 
-                customer = dbContext.Customers.Where(c => c.BankAccounts
+                customer = dbContext.Costumers.Where(c => c.BankAccounts
                                                            .Where(ba => ba.Id == bankAccount.Id)
                                                            .Count() > 0)
                                               .FirstOrDefault();

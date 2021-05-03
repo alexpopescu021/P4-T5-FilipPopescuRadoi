@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace BankingProject.Data.Migrations
+namespace BankingProject.DataAccess.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

@@ -1,5 +1,5 @@
-﻿using BankingProject.DataAccess.Abstractions;
-using BankingProject.Model;
+﻿using BankingProject.ApplicationLogic.Abstractions;
+using BankingProject.ApplicationLogic.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +10,7 @@ namespace BankingProject.ApplicationLogic.Services
     {
         private readonly ICustomerRepository customerRepository;
 
-        public CustomerService( ICustomerRepository customerRepository)
+        public CustomerService(ICustomerRepository customerRepository)
         {
             this.customerRepository = customerRepository;
         }

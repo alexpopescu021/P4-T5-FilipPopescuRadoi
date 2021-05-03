@@ -1,4 +1,4 @@
-﻿using BankingProject.Models;
+﻿using BankingProject.ApplicationLogic.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
