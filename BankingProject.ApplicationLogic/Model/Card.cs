@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BankingProject.Model
+namespace BankingProject.ApplicationLogic.Model
 {
     public class Card : DataEntity
     {
-       
+
         public string SerialNumber { get; set; }
         public int CVV { get; set; }
         public DateTime CreateDate { get; set; }

@@ -1,5 +1,5 @@
-﻿using BankingProject.DataAccess.Abstractions;
-using BankingProject.Model;
+﻿using BankingProject.ApplicationLogic.Abstractions;
+using BankingProject.ApplicationLogic.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +38,7 @@ namespace BankingProject.DataAccess.Repos
                                 /* .Include(c => c.ContactDetails)
                                  .Include(c => c.BankAccounts)
                                  .Include(c => c.BankAccounts.Select(ba => ba.Transactions))*/
-                                .Where(customer => customer.UserId == userId)
+                                .Where(customer => customer.Id == userId)
                                 .FirstOrDefault();
             return foundCustomer;
         }

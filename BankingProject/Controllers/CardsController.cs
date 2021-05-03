@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BankingProject.Data;
-using BankingProject.Models;
+using BankingProject.ApplicationLogic.Model;
 using BankingProject.DataAccess;
 
 namespace BankingProject.Controllers
@@ -27,7 +26,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: Cards/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -35,7 +34,7 @@ namespace BankingProject.Controllers
             }
 
             var card = await _context.Cards
-                .FirstOrDefaultAsync(m => m.CardId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (card == null)
             {
                 return NotFound();
@@ -87,9 +86,9 @@ namespace BankingProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CardId,SerialNumber,CVV,CreateDate,ExpDate,OwnerName")] Card card)
+        public async Task<IActionResult> Edit(Guid id, [Bind("CardId,SerialNumber,CVV,CreateDate,ExpDate,OwnerName")] Card card)
         {
-            if (id != card.CardId)
+            if (id != card.Id)
             {
                 return NotFound();
             }
@@ -103,7 +102,7 @@ namespace BankingProject.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CardExists(card.CardId))
+                    if (!CardExists(card.Id))
                     {
                         return NotFound();
                     }
@@ -118,7 +117,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: Cards/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
@@ -126,7 +125,7 @@ namespace BankingProject.Controllers
             }
 
             var card = await _context.Cards
-                .FirstOrDefaultAsync(m => m.CardId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (card == null)
             {
                 return NotFound();
@@ -146,9 +145,9 @@ namespace BankingProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CardExists(int id)
+        private bool CardExists(Guid id)
         {
-            return _context.Cards.Any(e => e.CardId == id);
+            return _context.Cards.Any(e => e.Id == id);
         }
     }
 }

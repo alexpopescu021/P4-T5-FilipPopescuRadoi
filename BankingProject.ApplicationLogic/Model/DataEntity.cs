@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BankingProject.Model
+namespace BankingProject.ApplicationLogic.Model
 {
     public class DataEntity
     {

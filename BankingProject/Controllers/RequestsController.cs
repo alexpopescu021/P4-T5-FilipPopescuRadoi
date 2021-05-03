@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BankingProject.Data;
-using BankingProject.Models;
+using BankingProject.ApplicationLogic.Model;
 using BankingProject.DataAccess;
 
 namespace BankingProject.Controllers
@@ -27,7 +26,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: Requests/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -35,7 +34,7 @@ namespace BankingProject.Controllers
             }
 
             var request = await _context.Requests
-                .FirstOrDefaultAsync(m => m.RequestId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (request == null)
             {
                 return NotFound();
@@ -87,9 +86,9 @@ namespace BankingProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RequestId,Type,SendDate")] Request request)
+        public async Task<IActionResult> Edit(Guid id, [Bind("RequestId,Type,SendDate")] Request request)
         {
-            if (id != request.RequestId)
+            if (id != request.Id)
             {
                 return NotFound();
             }
@@ -103,7 +102,7 @@ namespace BankingProject.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RequestExists(request.RequestId))
+                    if (!RequestExists(request.Id))
                     {
                         return NotFound();
                     }
@@ -118,7 +117,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: Requests/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
@@ -126,7 +125,7 @@ namespace BankingProject.Controllers
             }
 
             var request = await _context.Requests
-                .FirstOrDefaultAsync(m => m.RequestId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (request == null)
             {
                 return NotFound();
@@ -146,9 +145,9 @@ namespace BankingProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RequestExists(int id)
+        private bool RequestExists(Guid id)
         {
-            return _context.Requests.Any(e => e.RequestId == id);
+            return _context.Requests.Any(e => e.Id == id);
         }
     }
 }

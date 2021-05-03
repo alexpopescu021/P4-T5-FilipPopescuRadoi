@@ -1,5 +1,7 @@
-using BankingProject.Data;
+using BankingProject.ApplicationLogic.Abstractions;
+using BankingProject.ApplicationLogic.Services;
 using BankingProject.DataAccess;
+using BankingProject.DataAccess.Repos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,14 +33,26 @@ namespace BankingProject
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            
+
+            services.AddDbContext<BankingDbContext>(options =>
+                options.UseLazyLoadingProxies().UseSqlServer(
+                        Configuration.GetConnectionString("BankingConnection")));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddDbContext<BankingDbContext>(options =>
-                options.UseSqlServer(
-                        Configuration.GetConnectionString("BankingConnection")));
+            services.AddScoped<IPersistenceContext, EFPersistenceContext>();
+            services.AddScoped<CustomerService>();
+            services.AddScoped<AccountsService>();
+
+            services.AddScoped<PaymentsService>();
+
+            services.AddScoped<CardServices>();
+
             services.AddControllersWithViews();
-            services.AddRazorPages();
+            services.AddRazorPages()
+                .AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BankingProject.Data;
-using BankingProject.Models;
-using BankingProject.Model;
+using BankingProject.ApplicationLogic.Model;
 using BankingProject.DataAccess;
 
 namespace BankingProject.Controllers
@@ -28,7 +26,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: ContactDetails/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -36,7 +34,7 @@ namespace BankingProject.Controllers
             }
 
             var contactDetail = await _context.ContactDetails
-                .FirstOrDefaultAsync(m => m.ContactDetailId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (contactDetail == null)
             {
                 return NotFound();
@@ -56,7 +54,7 @@ namespace BankingProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ContactDetailId,Adress,City,Country,PhoneNo,AlternatePhoneNo,Email")] ContactDetail contactDetail)
+        public async Task<IActionResult> Create([Bind("ContactDetailId,Adress,City,Country,PhoneNo,AlternatePhoneNo,Email")] ContactDetails contactDetail)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +66,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: ContactDetails/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
             {
@@ -88,9 +86,9 @@ namespace BankingProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ContactDetailId,Adress,City,Country,PhoneNo,AlternatePhoneNo,Email")] ContactDetail contactDetail)
+        public async Task<IActionResult> Edit(Guid id, [Bind("ContactDetailId,Adress,City,Country,PhoneNo,AlternatePhoneNo,Email")] ContactDetails contactDetail)
         {
-            if (id != contactDetail.ContactDetailId)
+            if (id != contactDetail.Id)
             {
                 return NotFound();
             }
@@ -104,7 +102,7 @@ namespace BankingProject.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ContactDetailExists(contactDetail.ContactDetailId))
+                    if (!ContactDetailExists(contactDetail.Id))
                     {
                         return NotFound();
                     }
@@ -119,7 +117,7 @@ namespace BankingProject.Controllers
         }
 
         // GET: ContactDetails/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
@@ -127,7 +125,7 @@ namespace BankingProject.Controllers
             }
 
             var contactDetail = await _context.ContactDetails
-                .FirstOrDefaultAsync(m => m.ContactDetailId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (contactDetail == null)
             {
                 return NotFound();
@@ -147,9 +145,9 @@ namespace BankingProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ContactDetailExists(int id)
+        private bool ContactDetailExists(Guid id)
         {
-            return _context.ContactDetails.Any(e => e.ContactDetailId == id);
+            return _context.ContactDetails.Any(e => e.Id == id);
         }
     }
 }
