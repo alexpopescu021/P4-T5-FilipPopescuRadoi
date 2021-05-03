@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YdKm1SoighRbrkMBXbisaJYDXw15+gOdz40Av/AWAUYf0KIGOwPYAjdLJXu0LxVSyFS2BbYKBf/tje3OuwbLjg==",
+  "dgSpecHash": "YK2gNPiGdsj6uP5huqXKXXFKTk7K4SWa72sZhSZj9beiq6E2HfbTHkCfk7DWXknvqEwioaWO/L+YFHPChqHwNg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\BankingProject.DataAccess.Abstractions.csproj",
+  "projectFilePath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\BankingProject.DataAccess.Abstractions.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
