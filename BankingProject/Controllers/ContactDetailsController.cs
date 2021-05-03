@@ -54,7 +54,7 @@ namespace BankingProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ContactDetailId,Adress,City,Country,PhoneNo,AlternatePhoneNo,Email")] ContactDetail contactDetail)
+        public async Task<IActionResult> Create([Bind("ContactDetailId,Adress,City,Country,PhoneNo,AlternatePhoneNo,Email")] ContactDetails contactDetail)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace BankingProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("ContactDetailId,Adress,City,Country,PhoneNo,AlternatePhoneNo,Email")] ContactDetail contactDetail)
+        public async Task<IActionResult> Edit(Guid id, [Bind("ContactDetailId,Adress,City,Country,PhoneNo,AlternatePhoneNo,Email")] ContactDetails contactDetail)
         {
             if (id != contactDetail.Id)
             {

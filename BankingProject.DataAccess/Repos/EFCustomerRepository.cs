@@ -15,7 +15,7 @@ namespace BankingProject.DataAccess.Repos
 
         public IEnumerable<Customer> FindByLastName(string lastName)
         {
-            var customersList = dbContext.Costumers
+            var customersList = dbContext.Customers
                                 .Where(customer =>
                                             customer.LastName
                                             .ToLower()
@@ -26,7 +26,7 @@ namespace BankingProject.DataAccess.Repos
 
         public IEnumerable<Customer> GetCustomerstWithBankAccounts()
         {
-            return dbContext.Costumers
+            return dbContext.Customers
                                 .Where(customer =>
                                 customer.BankAccounts.Count() > 0);
         }
@@ -34,7 +34,7 @@ namespace BankingProject.DataAccess.Repos
 
         public Customer GetCustomerByUserId(Guid userId)
         {
-            var foundCustomer = dbContext.Costumers
+            var foundCustomer = dbContext.Customers
                                 /* .Include(c => c.ContactDetails)
                                  .Include(c => c.BankAccounts)
                                  .Include(c => c.BankAccounts.Select(ba => ba.Transactions))*/
@@ -60,7 +60,7 @@ namespace BankingProject.DataAccess.Repos
             if (bankAccount != null)
             {
 
-                customer = dbContext.Costumers.Where(c => c.BankAccounts
+                customer = dbContext.Customers.Where(c => c.BankAccounts
                                                            .Where(ba => ba.Id == bankAccount.Id)
                                                            .Count() > 0)
                                               .FirstOrDefault();

@@ -6,14 +6,30 @@ using System.Threading.Tasks;
 
 namespace BankingProject.ApplicationLogic.Model
 {
+    public enum CardTransactionType
+    {
+        Online,
+        Facility
+    }
     public class CardTransaction : DataEntity
     {
-        public string ExternalIBAN { get; set; }
-        public string ExternalName { get; set; }
-        public float Amount { get; set; }
-        public DateTime Time { get; set; }
-        public string Details { get; set; }
-        public string Status { get; set; }
-        public Card Card { get; set; }
+
+        public virtual Transaction Transaction { get; private set; }
+        public CardTransactionType TransactionType { get; private set; }
+
+        protected CardTransaction()
+        {
+        }
+
+        public static CardTransaction Create(Transaction transaction, CardTransactionType transactionType)
+        {
+            return new CardTransaction
+            {
+                Id = Guid.NewGuid(),
+                Transaction = transaction,
+                TransactionType = transactionType
+
+            };
+        }
     }
 }

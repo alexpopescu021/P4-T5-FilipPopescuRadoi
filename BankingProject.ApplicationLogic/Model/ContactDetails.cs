@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 
 namespace BankingProject.ApplicationLogic.Model
 {
-    public class ContactDetail: DataEntity
+    public class ContactDetails: DataEntity
     {
-        public string Adress { get; set; }
+        public string Address { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
         public string PhoneNo { get; set; }
         public string AlternatePhoneNo { get; set; }
         public string Email { get; set; }
-        public ICollection<Customer> Costumers { get; set; }
+       
     }
 }
