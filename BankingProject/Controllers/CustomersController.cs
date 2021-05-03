@@ -34,7 +34,7 @@ namespace BankingProject.Controllers
                 return NotFound();
             }
 
-            var costumer = await _context.Costumers
+            var costumer = await _context.Customers
                 .FirstOrDefaultAsync(m => m.CostumerId == id);
             if (costumer == null)
             {
