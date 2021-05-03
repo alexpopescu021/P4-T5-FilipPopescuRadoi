@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "BankingProject.ApplicationLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/BankingProject.ApplicationLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankingProject.ApplicationLogic.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BankingProject.ApplicationLogic/1.0.0": {
+      "type": "project",
+      "path": "../BankingProject.ApplicationLogic/BankingProject.ApplicationLogic.csproj",
+      "msbuildProject": "../BankingProject.ApplicationLogic/BankingProject.ApplicationLogic.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "BankingProject.ApplicationLogic >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\alexp\\.nuget\\packages\\": {},
@@ -14,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj",
-      "projectName": "BankingProject.ApplicationLogic",
-      "projectPath": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj",
+      "projectUniqueName": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\BankingProject.DataAccess.Abstractions.csproj",
+      "projectName": "BankingProject.DataAccess.Abstractions",
+      "projectPath": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\BankingProject.DataAccess.Abstractions.csproj",
       "packagesPath": "C:\\Users\\alexp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\obj\\",
+      "outputPath": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -38,7 +57,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj": {
+              "projectPath": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
