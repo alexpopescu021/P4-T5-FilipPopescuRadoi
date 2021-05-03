@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2HBGJiYyS4vAIsL+WzD7pZGG8s6wAlZPqL+AcYDDbkmAMsbEAEMAbFurq7PB0B4BpMwqHcSmN6Mtz9uqeSHzsw==",
+  "dgSpecHash": "M+OV/xL6Zu7h+xSLzfgEd81E82ExUZojMn7Qf1wijaO/JgCkwim2g1fuFIyVeQSaN0s5W15GG35u0K68BDoxHg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj",
+  "projectFilePath": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexp\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\alexp\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
