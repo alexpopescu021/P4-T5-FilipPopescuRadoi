@@ -6069,19 +6069,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alina\\.nuget\\packages\\": {}
+    "C:\\Users\\Teo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj",
+      "projectUniqueName": "C:\\Users\\Teo\\Documents\\GitHub\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj",
       "projectName": "BankingProject.ApplicationLogic",
-      "projectPath": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj",
-      "packagesPath": "C:\\Users\\Alina\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\obj\\",
+      "projectPath": "C:\\Users\\Teo\\Documents\\GitHub\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj",
+      "packagesPath": "C:\\Users\\Teo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Teo\\Documents\\GitHub\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Alina\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Teo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6122,12 +6122,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.10, 3.1.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
