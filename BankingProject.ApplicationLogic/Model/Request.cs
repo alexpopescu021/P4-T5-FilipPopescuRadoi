@@ -10,6 +10,6 @@ namespace BankingProject.ApplicationLogic.Model
     {
         public string Type { get; set; }
         public DateTime SendDate { get; set; }
-        public virtual Customer Costumer { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

@@ -51,11 +51,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.Services\\BankingProject.Services.csproj",
+      "projectUniqueName": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.Services\\BankingProject.Services.csproj",
       "projectName": "BankingProject.Services",
-      "projectPath": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.Services\\BankingProject.Services.csproj",
+      "projectPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.Services\\BankingProject.Services.csproj",
       "packagesPath": "C:\\Users\\alexp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.Services\\obj\\",
+      "outputPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -76,8 +76,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\BankingProject.DataAccess.Abstractions.csproj": {
-              "projectPath": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\BankingProject.DataAccess.Abstractions.csproj"
+            "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\BankingProject.DataAccess.Abstractions.csproj": {
+              "projectPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\BankingProject.DataAccess.Abstractions.csproj"
             }
           }
         }

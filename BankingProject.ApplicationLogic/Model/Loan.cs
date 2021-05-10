@@ -12,6 +12,6 @@ namespace BankingProject.ApplicationLogic.Model
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public float LunarFee { get; set; }
-        public virtual Customer Costumer { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

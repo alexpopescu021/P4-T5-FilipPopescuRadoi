@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\BankingProject.DataAccess.Abstractions.csproj",
+      "projectUniqueName": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\BankingProject.DataAccess.Abstractions.csproj",
       "projectName": "BankingProject.DataAccess.Abstractions",
-      "projectPath": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\BankingProject.DataAccess.Abstractions.csproj",
+      "projectPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\BankingProject.DataAccess.Abstractions.csproj",
       "packagesPath": "C:\\Users\\alexp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\obj\\",
+      "outputPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess.Abstractions\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,8 +58,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj": {
-              "projectPath": "C:\\Users\\alexp\\Source\\Repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj"
+            "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj": {
+              "projectPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj"
             }
           }
         }
