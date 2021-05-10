@@ -11,7 +11,7 @@ namespace BankingProject.ApplicationLogic.Model
         public decimal Balance { get; set; }
         public string Currency { get; set; }
         public DateTime LastTransactionDate { get; set; }
-        public ICollection<Card> Cards { get; set; }
+        public virtual ICollection<Card> Cards { get; set; }
         private List<Transaction> transactions = new List<Transaction>();
         public virtual IReadOnlyCollection<Transaction> Transactions
         {
