@@ -12,10 +12,10 @@ namespace BankingProject.ApplicationLogic.Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string SocialId { get; set; }
-        public ContactDetails ContactDetails { get; set; }
-        public ICollection<BankAccount> BankAccounts { get; set; }
-        public ICollection<Request> Requests { get; set; }
-        public ICollection<Loan> Loans { get; set; }
+        public virtual ContactDetails ContactDetails { get; set; }
+        public virtual ICollection<BankAccount> BankAccounts { get; set; }
+        public virtual ICollection<Request> Requests { get; set; }
+        public virtual ICollection<Loan> Loans { get; set; }
 
 
 
