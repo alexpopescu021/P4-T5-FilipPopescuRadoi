@@ -94,7 +94,9 @@ namespace BankingProject.Controllers
             try
             {
                 var customer = customerService.GetCustomerFromUserId(userId);
-                var transactions = customer.GetFilteredAccountTransactions(accountId, searchString);
+                
+                //var bankaccount = accountsService.
+                var transactions = customer.GetFilteredAccountTransactions(customer.Id, searchString);
                 var partialResult = PartialView("_TransactionsPartial", transactions);
                 return partialResult;
             }
