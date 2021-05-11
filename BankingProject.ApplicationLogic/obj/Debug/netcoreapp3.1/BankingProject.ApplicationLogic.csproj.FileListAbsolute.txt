@@ -16,3 +16,12 @@ C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLo
 C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\bin\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.dll
 C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\bin\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.pdb
 C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\obj\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.dll
+C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\bin\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.deps.json
+C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\bin\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.dll
+C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\bin\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.pdb
+C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\obj\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.csprojAssemblyReference.cache
+C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\obj\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.AssemblyInfoInputs.cache
+C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\obj\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.AssemblyInfo.cs
+C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\obj\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.csproj.CoreCompileInputs.cache
+C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\obj\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.dll
+C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\obj\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.pdb

@@ -7,147 +7,149 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BankingProject.ApplicationLogic.Model;
 using BankingProject.DataAccess;
+using BankingProject.ApplicationLogic.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
+using BankingProject.ViewModel.Cards;
 
 namespace BankingProject.Controllers
 {
     public class CardsController : Controller
     {
-        private readonly BankingDbContext _context;
+        private PaymentsService transactionService;
+        private UserManager<IdentityUser> userManager;
+        private CustomerService customerService;
+        private AccountsService accountsService;
+        private CardServices cardService;
+        //private MetaDataService metaDataService;
+        private ILogger logger;
+        public CardsController(CustomerService customerService,
+                                AccountsService accountsService,
+                                CardServices cardService,
+                                PaymentsService transactionService,
+                                //MetaDataService metaDataService,
+                                UserManager<IdentityUser> userManager,
+                                ILogger<CardsController> logger)
 
-        public CardsController(BankingDbContext context)
         {
-            _context = context;
+            this.transactionService = transactionService;
+            this.userManager = userManager;
+            this.cardService = cardService;
+            this.customerService = customerService;
+            this.accountsService = accountsService;
+           // this.metaDataService = metaDataService;
+            this.logger = logger;
         }
-
-        // GET: Cards
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Cards.ToListAsync());
-        }
+            string userId = userManager.GetUserId(User);
 
-        // GET: Cards/Details/5
-        public async Task<IActionResult> Details(Guid? id)
-        {
-            if (id == null)
+            try
             {
-                return NotFound();
-            }
+                var customer = customerService.GetCustomerFromUserId(userId);
+                var bankAccounts = accountsService.GetCustomerBankAccounts(userId);
 
-            var card = await _context.Cards
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (card == null)
-            {
-                return NotFound();
-            }
+                var cards = cardService.GetCardsForCustomer(userId);
+                CompleteCardsViewModel cardList = new CompleteCardsViewModel();
+                cardList.Cards = new List<CardWithColorViewModel>();
 
-            return View(card);
-        }
-
-        // GET: Cards/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Cards/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CardId,SerialNumber,CVV,CreateDate,ExpDate,OwnerName")] Card card)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(card);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(card);
-        }
-
-        // GET: Cards/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var card = await _context.Cards.FindAsync(id);
-            if (card == null)
-            {
-                return NotFound();
-            }
-            return View(card);
-        }
-
-        // POST: Cards/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("CardId,SerialNumber,CVV,CreateDate,ExpDate,OwnerName")] Card card)
-        {
-            if (id != card.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                foreach (var card in cards)
                 {
-                    _context.Update(card);
-                    await _context.SaveChangesAsync();
+                    CardWithColorViewModel temp = new CardWithColorViewModel();
+                    temp.Card = card;
+                    //temp.CardColor = metaDataService.GetMetaDataForCard(card.Id);
+                    cardList.Cards.Add(temp);
                 }
-                catch (DbUpdateConcurrencyException)
+                return View(cardList);
+            }
+            catch (Exception e)
+            {
+                logger.LogDebug("Failed to retrieve cards list {@Exception}", e);
+                logger.LogError("Failed to retrieve cards list {ExceptionMessage}", e.Message);
+                return BadRequest("Unable to process your request");
+            }
+
+        }
+
+
+        public ActionResult CardPayments(Guid Id, [FromForm] CardTransactionsListViewModel model)
+        {
+
+            string userId = userManager.GetUserId(User);
+            try
+            {
+
+                if (model == null)
                 {
-                    if (!CardExists(card.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    model = new CardTransactionsListViewModel();
                 }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(card);
-        }
+                var customer = customerService.GetCustomerFromUserId(userId);
+                var bankAccounts = accountsService.GetCustomerBankAccounts(userId);
+                var card = cardService.GetCardByCardId(Id);
+                model.OwnerName = card.OwnerName;
+                model.SerialNumber = card.SerialNumber;
+                model.CardId = Id;
 
-        // GET: Cards/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
-        {
-            if (id == null)
+
+                var cardTransactions = cardService.GetFilteredCardTransactions(card.Id, model.SearchBy, model.TransactionType);
+                List<CardTransactionViewModel> cardTransactionViewModel = new List<CardTransactionViewModel>();
+                foreach (var transaction in cardTransactions)
+                {
+                    CardTransactionViewModel temp = new CardTransactionViewModel();
+
+                    temp.Amount = transaction.Transaction.Amount;
+                    temp.Name = transaction.Transaction.ExternalName;
+                    temp.TransactionType = transaction.TransactionType.ToString();
+                    temp.DateTime = transaction.Transaction.Time;
+                    cardTransactionViewModel.Add(temp);
+                }
+
+
+                model.CardTransactions = cardTransactionViewModel;
+
+
+                return View(model);
+            }
+            catch (Exception e)
             {
-                return NotFound();
-            }
+                logger.LogError("Unable to retrieve card payments {ExceptionMessage}", e.Message);
+                logger.LogDebug("Unable to retrieve card payments {@Exception}", e);
+                return BadRequest("Unable to process your request");
 
-            var card = await _context.Cards
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (card == null)
+            }
+        }
+
+
+
+        [HttpPost]
+        public IActionResult CreateCardTransaction([FromForm] TransactionViewModel viewModel)
+        {
+            var model = new TransactionViewModel { PaymentStatus = NewPaymentStatus.Failed };
+            if (!ModelState.IsValid ||
+                viewModel.IBan == null ||
+                viewModel.ExternalName == null ||
+                viewModel.Amount == 0)
+                return PartialView("NewPaymentPartial", model);
+            ModelState.Clear();
+            try
             {
-                return NotFound();
+                var userId = userManager.GetUserId(User);
+                cardService.MakeOnlinePayment(userId,
+                                                viewModel.CardId,
+                                                viewModel.Amount,
+                                                viewModel.ExternalName,
+                                                viewModel.IBan);
+
+                model.PaymentMessage = "Done";
+                model.PaymentStatus = NewPaymentStatus.Created;
             }
-
-            return View(card);
-        }
-
-        // POST: Cards/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var card = await _context.Cards.FindAsync(id);
-            _context.Cards.Remove(card);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool CardExists(Guid id)
-        {
-            return _context.Cards.Any(e => e.Id == id);
+            catch (Exception e)
+            {
+                logger.LogError("Unable to execute payment {ExceptionMessage}", e.Message);
+                logger.LogDebug("Unable to execute payment {@Exception}", e);
+                return BadRequest("Unable to process your request");
+            }
+            return PartialView("_NewPaymentPartial", model);
         }
     }
 }

@@ -38,7 +38,7 @@ namespace BankingProject.DataAccess.Repos
                                 /* .Include(c => c.ContactDetails)
                                  .Include(c => c.BankAccounts)
                                  .Include(c => c.BankAccounts.Select(ba => ba.Transactions))*/
-                                .Where(customer => customer.Id == userId)
+                                .Where(customer => customer.UserId == userId)
                                 .FirstOrDefault();
             return foundCustomer;
         }
