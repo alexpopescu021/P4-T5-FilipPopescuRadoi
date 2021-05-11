@@ -19,6 +19,16 @@ namespace BankingProject.Controllers
             _context = context;
         }
 
+        public IActionResult RequestLoan()
+        {
+            return View();
+        }
+
+        public IActionResult RequestCard()
+        {
+            return View();
+        }
+
         // GET: Requests
         public async Task<IActionResult> Index()
         {
