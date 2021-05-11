@@ -22,6 +22,7 @@ namespace BankingProject.ViewModel.Cards
         public decimal Amount { get; set; }
 
         public Guid CardId { get; set; }
+        // public IEnumerable<Card> CardList {get; set;}
         [Required]
         [Display(Name = "Enter External Name")]
         public string ExternalName { get; set; }

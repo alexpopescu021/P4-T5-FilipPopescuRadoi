@@ -14,7 +14,7 @@ namespace BankingProject.ApplicationLogic.Model
         public DateTime CreateDate { get; set; }
         public DateTime ExpDate { get; set; }
         public string OwnerName { get; set; }
-        public BankAccount BankAccount { get; set; }
-        public ICollection<CardTransaction> CardTransactions { get; set; }
+        public virtual BankAccount BankAccount { get; set; }
+        public virtual ICollection<CardTransaction> CardTransactions { get; set; }
     }
 }
