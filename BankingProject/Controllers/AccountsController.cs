@@ -105,7 +105,7 @@ namespace BankingProject.Controllers
         }
 
 
-        public async Task<IActionResult> TransactionsReport([FromRoute] Guid accountId, [FromQuery] string searchString)
+        public IActionResult TransactionsReport([FromRoute] Guid accountId, [FromQuery] string searchString)
         {
 
             string userId = userManager.GetUserId(User);
