@@ -1372,3 +1372,5 @@ C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\net
 C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Payments\Index.cshtml.g.cs
 C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Payments\SearchPayments.cshtml.g.cs
 C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Payments\_NewPaymentPartial.cshtml.g.cs
+C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\RequestLoan.cshtml.g.cs
+C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\RequestCard.cshtml.g.cs
