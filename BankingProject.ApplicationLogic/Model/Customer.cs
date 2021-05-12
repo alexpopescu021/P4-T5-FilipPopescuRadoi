@@ -50,6 +50,7 @@ namespace BankingProject.ApplicationLogic.Model
 
         public IEnumerable<Transaction> GetFilteredAccountTransactions(Guid accountId, string filter)
         {
+           
             var account = BankAccounts
                     .Where(ba => accountId.Equals(ba.Id))
                     .SingleOrDefault();
@@ -61,7 +62,7 @@ namespace BankingProject.ApplicationLogic.Model
             IEnumerable<Transaction> transactions;
             if (string.IsNullOrEmpty(filter))
             {
-                transactions = account.Transactions;
+                 transactions = account.Transactions;
             }
             else
             {

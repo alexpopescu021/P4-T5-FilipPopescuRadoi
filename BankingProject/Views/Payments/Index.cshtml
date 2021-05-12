@@ -110,13 +110,16 @@
                             <input type="radio" id="account" onclick="Button1()" name="account" value="@account.IBAN" checked="checked">
                             @*<input onclick="Button1()" name="account" checked="checked" class="form-check-input" type="checkbox" id="defaultCheck1">*@
                             <label class="form-check-label" for="defaultCheck1">
-                                @account.IBAN
+                                IBAN: @account.IBAN
                             </label>
+                            <br />
+                            @account.Balance Lei
                         </div>
                     </td>
                 </tr>
-            }
-        </tbody>
+            } 
+                        
+                </tbody>
     </table>
 </div>
 
