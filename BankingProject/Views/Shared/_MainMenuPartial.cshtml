@@ -1,9 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-
-    <ul class="navbar-nav flex-grow-1">
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<ul class="navbar-nav flex-grow-1">
+    @if (User.IsInRole("User"))
+    {
         <li class="nav-item">
             <a class="nav-link text-light" asp-area="" asp-controller="Accounts" asp-action="Index">
                 <i class="fas fa-wallet"></i>
@@ -24,7 +24,9 @@
                 Cards
             </a>
         </li>
-
+    }
+    @if (User.IsInRole("Admin"))
+    {
         <li class="nav-item">
             <a class="nav-link text-light" asp-area="" asp-controller="Loans" asp-action="Index">
                 <i class="fas fa-landmark" aria-hidden="true"></i>
@@ -45,7 +47,8 @@
                 Customers
             </a>
         </li>
+    }
 
+    
+</ul>
 
-    </ul>
-}

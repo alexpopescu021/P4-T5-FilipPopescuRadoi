@@ -62,7 +62,7 @@ namespace BankingProject.ApplicationLogic.Model
             IEnumerable<Transaction> transactions;
             if (string.IsNullOrEmpty(filter))
             {
-                 transactions = account.Transactions;
+                 transactions = account.Transactions.AsEnumerable();
             }
             else
             {
