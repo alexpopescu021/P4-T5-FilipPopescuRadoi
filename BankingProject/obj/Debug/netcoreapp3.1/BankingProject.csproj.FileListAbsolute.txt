@@ -1399,10 +1399,6 @@ C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\net
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Customers\Index.cshtml.g.cs
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Customers\Details.cshtml.g.cs
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Customers\Delete.cshtml.g.cs
-C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\Index.cshtml.g.cs
-C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\Details.cshtml.g.cs
-C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\Edit.cshtml.g.cs
-C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Loans\Index.cshtml.g.cs
 C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Customers\Delete.cshtml.g.cs
 C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Customers\Details.cshtml.g.cs
 C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Customers\Index.cshtml.g.cs
