@@ -35,5 +35,10 @@ namespace BankingProject.ApplicationLogic.Services
             Guid idToSearch = Guid.Parse(id);
             customerRepository.Remove(idToSearch);
         }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            customerRepository.Update(customer);
+        }
     }
 }

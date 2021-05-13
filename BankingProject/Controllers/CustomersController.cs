@@ -26,7 +26,7 @@ namespace BankingProject.Controllers
         // GET: Costumers
         public IActionResult Index()
         {
-            return View(service.GetCustomers());
+            return View(service.GetCustomers().OrderBy(s=>s.FirstName));
         }
 
         // GET: Costumers/Details/5
@@ -62,16 +62,16 @@ namespace BankingProject.Controllers
             }
             return View(costumer);
         }
-
+        */
         // GET: Costumers/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var costumer = await _context.Customers.FindAsync(id);
+            var costumer = service.GetCustomerFromUserId(id);
             if (costumer == null)
             {
                 return NotFound();
@@ -84,37 +84,22 @@ namespace BankingProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CostumerId,FirstName,LastName,SocialId")] Customer costumer)
+        public IActionResult Edit(string id, [Bind("CostumerId,FirstName,LastName,SocialId")] Customer costumer)
         {
-            Guid.Parse
-            if (id != costumer.Id)
+            Guid idG = Guid.Parse(id);
+            if (idG != costumer.Id)
             {
                 return NotFound();
             }
 
-            if (modelstate.isvalid)
+            if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.update(costumer);
-                    await _context.savechangesasync();
-                }
-                catch (dbupdateconcurrencyexception)
-                {
-                    if (!costumerexists(costumer.id))
-                    {
-                        return notfound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return redirecttoaction(nameof(index));
+                service.UpdateCustomer(costumer);
+                return RedirectToAction(nameof(Index));
             }
-            return view(costumer);
+            return View(costumer);
         }
-        */
+        
         // get: costumers/delete/5
         public IActionResult Delete(string id)
         {

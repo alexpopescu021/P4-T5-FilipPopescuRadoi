@@ -24,13 +24,26 @@
                 Cards
             </a>
         </li>
-    }
-    @if (User.IsInRole("Admin"))
-    {
         <li class="nav-item">
             <a class="nav-link text-light" asp-area="" asp-controller="Loans" asp-action="Index">
                 <i class="fas fa-landmark" aria-hidden="true"></i>
                 Loans
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="" asp-controller="Requests" asp-action="UserRequests">
+                <i class="fas fa-grin-stars" aria-hidden="true"></i>
+                Requests
+            </a>
+        </li>
+    }
+    @if (User.IsInRole("Admin"))
+    {
+
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="" asp-controller="Transactions" asp-action="Index">
+                <i class="fas fa-grin-stars" aria-hidden="true"></i>
+                Transactions
             </a>
         </li>
 
@@ -49,6 +62,6 @@
         </li>
     }
 
-    
+
 </ul>
 

@@ -7,24 +7,32 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BankingProject.ApplicationLogic.Model;
 using BankingProject.DataAccess;
+using BankingProject.ApplicationLogic.Services;
 
 namespace BankingProject.Controllers
 {
     public class TransactionsController : Controller
     {
-        private readonly BankingDbContext _context;
+        private readonly BankingDbContext dbContext;
+        private readonly PaymentsService paymentsService;
 
-        public TransactionsController(BankingDbContext context)
+        public TransactionsController(BankingDbContext dbContext, PaymentsService paymentsService)
         {
-            _context = context;
+            this.dbContext = dbContext;
+            this.paymentsService = paymentsService;
         }
 
         // GET: Transactions
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Transactions.ToListAsync());
+            return View(dbContext.Transactions.AsEnumerable());
         }
-
+        public IActionResult CustomerTransactions(string id)
+        {
+            var transactions= paymentsService.GetCustomerPayments(id);
+            return View(transactions);
+        }
+        /*
         // GET: Transactions/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
@@ -148,6 +156,6 @@ namespace BankingProject.Controllers
         private bool TransactionExists(Guid id)
         {
             return _context.Transactions.Any(e => e.Id == id);
-        }
+        }*/
     }
 }

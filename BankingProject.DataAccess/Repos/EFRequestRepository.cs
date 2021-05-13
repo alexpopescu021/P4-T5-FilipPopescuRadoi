@@ -11,5 +11,10 @@ namespace BankingProject.DataAccess.Repos
     {
         public EFRequestRepository(BankingDbContext dbContext) : base(dbContext)
         { }
+
+        public IEnumerable<Request> GetByCustomerId(Guid id)
+        {
+            return dbContext.Requests.Where(s => s.Customer.Id.Equals(id)).AsEnumerable();
+        }
     }
 }

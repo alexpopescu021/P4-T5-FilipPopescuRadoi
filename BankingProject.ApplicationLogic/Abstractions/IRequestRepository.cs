@@ -7,5 +7,6 @@ namespace BankingProject.ApplicationLogic.Abstractions
 {
     public interface IRequestRepository : IBaseRepository<Request>
     {
+        public IEnumerable<Request> GetByCustomerId(Guid id);
     }
 }

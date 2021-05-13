@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<BankingProject.ApplicationLogic.Model.Request>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "UserRequests";
 }
 
 <h1>Requests</h1>
-<br /><br />
+
 <table class="table">
     <thead>
         <tr>
@@ -18,7 +18,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -32,9 +31,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
             </td>
         </tr>
 }

@@ -20,6 +20,12 @@ namespace BankingProject.ApplicationLogic.Services
             return requestRepository.GetAll();
         }
 
+        public IEnumerable<Request> GetRequestsByCustomerId(string id)
+        {
+            Guid idToSearch = Guid.Parse(id);
+            return requestRepository.GetByCustomerId(idToSearch);
+        }
+
         public Request GetRequestById(string id)
         {
             Guid idToSearch = Guid.Parse(id);

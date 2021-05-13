@@ -37,7 +37,13 @@ namespace BankingProject.Controllers
         {
             return View(requestsService.GetRequests().OrderBy(s=>s.Status));
         }
-        
+
+        public IActionResult UserRequests()
+        {
+            var customer = customerService.GetCustomerFromUserId(userManager.GetUserId(User));
+            return View(requestsService.GetRequestsByCustomerId(customer.Id.ToString()).OrderBy(s=>s.Status));
+        }
+
         // GET: Requests/Details/5
         public IActionResult Details(string id)
         {
