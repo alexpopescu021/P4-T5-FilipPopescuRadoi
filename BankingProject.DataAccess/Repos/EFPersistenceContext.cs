@@ -19,16 +19,7 @@ namespace BankingProject.DataAccess.Repos
             //CardTransactionRepository = new EFCardTransactionRepository(context);
 
         }
-        public IBankAccountMetaDataRepository BankAccountMetaDataRepository
-        {
-            get;
-            private set;
-        }
-        public ICardMetaDataRepository CardMetaDataRepository
-        {
-            get;
-            private set;
-        }
+       
 
         public ICustomerRepository CustomerRepository
         {

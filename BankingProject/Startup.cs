@@ -43,12 +43,7 @@ namespace BankingProject
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddScoped<IPersistenceContext, EFPersistenceContext>();
-            services.AddScoped<ICustomerRepository, EFCustomerRepository>();
             services.AddScoped<CustomerService>();
-            services.AddScoped<IRequestRepository, EFRequestRepository>();
-            services.AddScoped<RequestsService>();
-            services.AddScoped<ILoanRepository, EFLoanRepository>();
-            services.AddScoped<LoanService>();
             services.AddScoped<AccountsService>();
 
             services.AddScoped<PaymentsService>();

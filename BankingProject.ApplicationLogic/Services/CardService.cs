@@ -95,9 +95,5 @@ namespace BankingProject.ApplicationLogic.Services
             }
             return cards;
         }
-        public void AddCard(Card card)
-        {
-            cardRepository.Add(card);
-        }
     }
 }

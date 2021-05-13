@@ -15,8 +15,5 @@ namespace BankingProject.ApplicationLogic.Abstractions
         IEnumerable<Customer> GetCustomerstWithBankAccounts();
 
         Customer GetCustomerThatOwnsIban(string iban);
-
-        IEnumerable<Customer> GetCustomers();
-
     }
 }

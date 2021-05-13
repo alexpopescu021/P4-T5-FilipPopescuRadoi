@@ -7,25 +7,24 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BankingProject.ApplicationLogic.Model;
 using BankingProject.DataAccess;
-using BankingProject.ApplicationLogic.Services;
 
 namespace BankingProject.Controllers
 {
     public class LoansController : Controller
     {
-        private readonly LoanService loanService;
+        private readonly BankingDbContext _context;
 
-        public LoansController(LoanService loanService)
+        public LoansController(BankingDbContext context)
         {
-            this.loanService = loanService;
+            _context = context;
         }
 
         // GET: Loans
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(loanService.GetLoans());
+            return View(await _context.Loans.ToListAsync());
         }
-        /*
+
         // GET: Loans/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
@@ -149,6 +148,6 @@ namespace BankingProject.Controllers
         private bool LoanExists(Guid id)
         {
             return _context.Loans.Any(e => e.Id == id);
-        }*/
+        }
     }
 }

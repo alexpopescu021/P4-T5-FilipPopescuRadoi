@@ -25,6 +25,10 @@ namespace BankingProject.ApplicationLogic.Model
             }
         }
 
+
+
+
+
         private static bool IsValidIBAN(string IBAN)
         {
             if (IBAN.Length == 24)
