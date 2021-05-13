@@ -25,5 +25,15 @@ namespace BankingProject.ApplicationLogic.Services
 
             return customer;
         }
+        public IEnumerable<Customer> GetCustomers()
+        {
+            return customerRepository.GetCustomers();
+        }
+
+        public void RemoveCustomer(string id)
+        {
+            Guid idToSearch = Guid.Parse(id);
+            customerRepository.Remove(idToSearch);
+        }
     }
 }
