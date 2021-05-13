@@ -67,5 +67,17 @@ namespace BankingProject.DataAccess.Repos
             }
             return customer;
         }
+
+        public IEnumerable<Customer> GetCustomers()
+        {
+            return dbContext.Customers.AsEnumerable();
+        }
+        public bool Remove(Guid id)
+        {
+            var customer = GetById(id);
+            dbContext.Remove(customer);
+            dbContext.SaveChanges();
+            return true;
+        }
     }
 }

@@ -22,11 +22,10 @@ namespace BankingProject.DataAccess.Migrations
             modelBuilder.Entity("BankingProject.ApplicationLogic.Model.BankAccount", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Balance")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 4)");
 
                     b.Property<string>("Currency")
                         .HasColumnType("nvarchar(max)");
@@ -47,10 +46,29 @@ namespace BankingProject.DataAccess.Migrations
                     b.ToTable("BankAccounts");
                 });
 
-            modelBuilder.Entity("BankingProject.ApplicationLogic.Model.Card", b =>
+            modelBuilder.Entity("BankingProject.ApplicationLogic.Model.BankAccountMetaData", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BankAccountId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Color")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BankAccountMetaDatas");
+                });
+
+            modelBuilder.Entity("BankingProject.ApplicationLogic.Model.Card", b =>
+                {
+                    b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("BankAccountId")
@@ -78,10 +96,26 @@ namespace BankingProject.DataAccess.Migrations
                     b.ToTable("Cards");
                 });
 
-            modelBuilder.Entity("BankingProject.ApplicationLogic.Model.CardTransaction", b =>
+            modelBuilder.Entity("BankingProject.ApplicationLogic.Model.CardMetaData", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CardId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Color")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CardMetaData");
+                });
+
+            modelBuilder.Entity("BankingProject.ApplicationLogic.Model.CardTransaction", b =>
+                {
+                    b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("CardId")
@@ -134,7 +168,6 @@ namespace BankingProject.DataAccess.Migrations
             modelBuilder.Entity("BankingProject.ApplicationLogic.Model.Customer", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("ContactDetailsId")
@@ -165,7 +198,7 @@ namespace BankingProject.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CostumerId")
+                    b.Property<Guid?>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("EndDate")
@@ -182,7 +215,7 @@ namespace BankingProject.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CostumerId");
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Loans");
                 });
@@ -193,18 +226,21 @@ namespace BankingProject.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CostumerId")
+                    b.Property<Guid?>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("SendDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CostumerId");
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Requests");
                 });
@@ -212,11 +248,10 @@ namespace BankingProject.DataAccess.Migrations
             modelBuilder.Entity("BankingProject.ApplicationLogic.Model.Transaction", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 4)");
 
                     b.Property<Guid>("BankAccountId")
                         .HasColumnType("uniqueidentifier");
@@ -277,16 +312,16 @@ namespace BankingProject.DataAccess.Migrations
 
             modelBuilder.Entity("BankingProject.ApplicationLogic.Model.Loan", b =>
                 {
-                    b.HasOne("BankingProject.ApplicationLogic.Model.Customer", "Costumer")
+                    b.HasOne("BankingProject.ApplicationLogic.Model.Customer", "Customer")
                         .WithMany("Loans")
-                        .HasForeignKey("CostumerId");
+                        .HasForeignKey("CustomerId");
                 });
 
             modelBuilder.Entity("BankingProject.ApplicationLogic.Model.Request", b =>
                 {
-                    b.HasOne("BankingProject.ApplicationLogic.Model.Customer", "Costumer")
+                    b.HasOne("BankingProject.ApplicationLogic.Model.Customer", "Customer")
                         .WithMany("Requests")
-                        .HasForeignKey("CostumerId");
+                        .HasForeignKey("CustomerId");
                 });
 
             modelBuilder.Entity("BankingProject.ApplicationLogic.Model.Transaction", b =>
