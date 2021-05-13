@@ -4,12 +4,45 @@
 @{
     ViewData["Title"] = "Account Details";
 }
+
+@*$(document).ready(function () {
+            loadTable();
+        });
+
+
+
+        function loadTable(modalName) {
+            loadServerPartialView("#songsTableContainer", "/Songs/SongsTable").done(function () {
+                $('#Songs').DataTable({ responsive: true, "lengthMenu": [5, 10, 25, 50] });
+            });
+            $(modalName).modal('hide');
+        }
+        $(function () {
+            $('#modal').modal('toggle');
+        });*@
 @section Scripts{
 
     <partial name="_ValidationScriptsPartial" />
     <script src="~/js/partialViewLoader.js" type="text/javascript"></script>
     <script>
-    function searchTransaction() {
+
+        $(document).ready(function () {
+            loadTable();
+        });
+
+
+
+        function loadTable(modalName) {
+            loadServerPartialView("#transactionsContainer", "/Accounts/Transactions/@Model.BankAccount.Id").done(function () {
+                $('#transactionsContainer').DataTable({ responsive: true, "lengthMenu": [5, 10, 25, 50] });
+            });
+            $(modalName).modal('hide');
+        }
+        $(function () {
+            $('#modal').modal('toggle');
+        });
+
+    @*function searchTransaction() {
         var filterValue = $("#filterText").val();
         loadServerPartialView("#transactionsContainer", "/Accounts/@Model.BankAccount.Id/Transactions?searchString=" + filterValue);
         }
@@ -21,6 +54,7 @@
         }
 
         $(document).ready(function () {
+
             searchTransaction();
                 $('#newPaymentModal').on('show.bs.modal', function (event) {
                     $("#payButton").show();
@@ -32,7 +66,7 @@
                 loadServerPartialView("#balanceContainer", "/Accounts/@Model.BankAccount.Id/AccountBalance");
 
             });
-    });
+    });*@
     </script>
 }
 
@@ -83,7 +117,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-filter"></i></span>
             </div>
-            <input id="filterText" onkeyup="searchTransaction();" type="text" placeholder="Filter..." class="form-control" />
+            @*<input id="filterText" onkeyup="searchTransaction();" type="text" placeholder="Filter..." class="form-control" />*@
         </div>
     </div>
 </div>
