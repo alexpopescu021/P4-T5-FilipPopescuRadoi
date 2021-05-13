@@ -88,7 +88,7 @@ namespace BankingProject.Controllers
             var request = requestsService.GetRequestById(id);
             request.Status++;
             requestsService.UpdateReq(request);
-            var customer = customerService.GetCustomerFromUserId(userManager.GetUserId(User));
+            //var customer = customerService.GetCustomerFromUserId(userManager.GetUserId(User));
             if (request.Type == "Card")
             {
                 var card = new Card
@@ -97,7 +97,7 @@ namespace BankingProject.Controllers
                     CVV = 111,
                     CreateDate = DateTime.Now,
                     ExpDate = DateTime.Now.AddYears(4),
-                    OwnerName = customer.FirstName + customer.LastName,
+                    OwnerName = "Teodora Radoi",
                 };
                 cardServices.AddCard(card);
             } else if(request.Type == "Loan")

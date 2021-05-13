@@ -11,6 +11,6 @@ namespace BankingProject.ViewModel.Accounts
         public string CustomerName { get; set; }
         public string CustomerContact { get; set; }
         public BankAccount BankAccount { get; set; }
-       
+        public BankAccountMetaData MetaData { get; set; }
     }
 }

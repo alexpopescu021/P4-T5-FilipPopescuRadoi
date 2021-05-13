@@ -19,6 +19,8 @@ namespace BankingProject.Controllers
     [Authorize]
     public class AccountsController : Controller
     {
+        private readonly MetaDataService metaDataService;
+
         private readonly AccountsService accountsService;
         private readonly CustomerService customerService;
         private readonly PaymentsService paymentsService;
@@ -26,10 +28,12 @@ namespace BankingProject.Controllers
         private readonly UserManager<IdentityUser> userManager;
 
         public AccountsController(AccountsService customerServices,
+                                  MetaDataService metaDataService,
                                   CustomerService customerService,
                                   PaymentsService paymentsService, RequestsService requestsService,
                                   UserManager<IdentityUser> userManager)
         {
+            this.metaDataService = metaDataService;
             this.accountsService = customerServices;
             this.userManager = userManager;
             this.customerService = customerService;

@@ -40,11 +40,13 @@ namespace BankingProject
                         Configuration.GetConnectionString("BankingConnection")));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddScoped<IPersistenceContext, EFPersistenceContext>();
             services.AddScoped<ICustomerRepository, EFCustomerRepository>();
             services.AddScoped<CustomerService>();
+            services.AddScoped<MetaDataService>();
             services.AddScoped<IRequestRepository, EFRequestRepository>();
             services.AddScoped<RequestsService>();
             services.AddScoped<ILoanRepository, EFLoanRepository>();
