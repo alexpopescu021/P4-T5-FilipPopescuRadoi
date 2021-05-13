@@ -22,17 +22,43 @@ namespace BankingProject.Controllers
         private readonly AccountsService accountsService;
         private readonly CustomerService customerService;
         private readonly PaymentsService paymentsService;
+        private readonly RequestsService requestsService;
         private readonly UserManager<IdentityUser> userManager;
 
         public AccountsController(AccountsService customerServices,
                                   CustomerService customerService,
-                                  PaymentsService paymentsService,
+                                  PaymentsService paymentsService, RequestsService requestsService,
                                   UserManager<IdentityUser> userManager)
         {
             this.accountsService = customerServices;
             this.userManager = userManager;
             this.customerService = customerService;
             this.paymentsService = paymentsService;
+            this.requestsService = requestsService;
+        }
+
+        public IActionResult RequestLoan()
+        {
+            var request = new Request();
+            var customer = customerService.GetCustomerFromUserId(userManager.GetUserId(User));
+            request.Type = "Loan";
+            request.SendDate = DateTime.Now;
+            request.Status = 0;
+            request.Customer = customer;
+            requestsService.AddRequest(request);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult RequestCard()
+        {
+            var request = new Request();
+            var customer = customerService.GetCustomerFromUserId(userManager.GetUserId(User));
+            request.Type = "Card";
+            request.SendDate = DateTime.Now;
+            request.Status = 0;
+            request.Customer = customer;
+            requestsService.AddRequest(request);
+            return RedirectToAction(nameof(Index));
         }
         public IActionResult Index()
         {
@@ -64,6 +90,7 @@ namespace BankingProject.Controllers
                 return BadRequest("Unable retrieve data for the current user");
             }
         }
+
         public IActionResult Details([FromRoute] Guid id)
         {
             string userId = userManager.GetUserId(User);

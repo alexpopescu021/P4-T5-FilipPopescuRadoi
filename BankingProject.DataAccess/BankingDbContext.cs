@@ -22,6 +22,8 @@ namespace BankingProject.DataAccess
         public DbSet<Loan> Loans { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<BankAccountMetaData> BankAccountMetaDatas { get; set; }
+        public DbSet<CardMetaData> CardMetaData { get; set; }
 
 
 
