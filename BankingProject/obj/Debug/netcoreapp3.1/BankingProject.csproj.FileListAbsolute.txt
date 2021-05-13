@@ -1335,6 +1335,8 @@ C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\net
 C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Payments\_NewPaymentPartial.cshtml.g.cs
 C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\RequestLoan.cshtml.g.cs
 C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\RequestCard.cshtml.g.cs
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\RequestCard.cshtml.g.cs
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\RequestLoan.cshtml.g.cs
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\bin\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.dll
@@ -1363,10 +1365,3 @@ C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\net
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\Details.cshtml.g.cs
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\Edit.cshtml.g.cs
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Loans\Index.cshtml.g.cs
-C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Customers\Delete.cshtml.g.cs
-C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Customers\Details.cshtml.g.cs
-C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Customers\Index.cshtml.g.cs
-C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Loans\Index.cshtml.g.cs
-C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\Details.cshtml.g.cs
-C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\Edit.cshtml.g.cs
-C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject\obj\Debug\netcoreapp3.1\Razor\Views\Requests\Index.cshtml.g.cs
