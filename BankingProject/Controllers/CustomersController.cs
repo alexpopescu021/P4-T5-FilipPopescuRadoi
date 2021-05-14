@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BankingProject.ApplicationLogic.Services;
 using Microsoft.AspNetCore.Identity;
 using BankingProject.ApplicationLogic.Model;
+using BankingProject.ViewModel.Customers;
 
 namespace BankingProject.Controllers
 {
@@ -24,9 +25,21 @@ namespace BankingProject.Controllers
         }
 
         // GET: Costumers
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
-            return View(service.GetCustomers().OrderBy(s=>s.FirstName));
+            var customers = service.GetCustomers();
+            int number = customers.Count();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                customers = customers.Where(s => s.FirstName.Contains(searchString) || s.LastName.Contains(searchString));
+            }
+            customers.OrderBy(s => s.FirstName);
+            var costumersVM = new CustomersWithNrViewModelcs
+            {
+                Customers = customers,
+                CustomersNumber = number
+            };
+            return View(costumersVM);
         }
 
         // GET: Costumers/Details/5
@@ -84,20 +97,22 @@ namespace BankingProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(string id, [Bind("CostumerId,FirstName,LastName,SocialId")] Customer costumer)
+        public IActionResult Edit(string id, string FirstName, string LastName, string SocialId)
         {
+            
             Guid idG = Guid.Parse(id);
-            if (idG != costumer.Id)
-            {
-                return NotFound();
-            }
 
+            var existing = service.GetCustomerFromUserId(id);
+            var customer = existing;
+            customer.FirstName = FirstName;
+            customer.LastName = LastName;
+            customer.SocialId = SocialId;
             if (ModelState.IsValid)
             {
-                service.UpdateCustomer(costumer);
+                service.UpdateCustomer(customer);
                 return RedirectToAction(nameof(Index));
             }
-            return View(costumer);
+            return View(customer);
         }
         
         // get: costumers/delete/5

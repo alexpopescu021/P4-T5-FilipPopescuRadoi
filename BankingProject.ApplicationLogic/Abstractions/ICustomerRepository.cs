@@ -18,5 +18,7 @@ namespace BankingProject.ApplicationLogic.Abstractions
 
         IEnumerable<Customer> GetCustomers();
 
+        void AddBankAccount(BankAccount account);
+
     }
 }

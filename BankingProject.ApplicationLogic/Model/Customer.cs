@@ -21,7 +21,7 @@ namespace BankingProject.ApplicationLogic.Model
 
 
 
-        protected Customer()
+        public Customer()
         {
         }
         public static Customer Create(Guid userId, string firstName, string lastName, string socialId)

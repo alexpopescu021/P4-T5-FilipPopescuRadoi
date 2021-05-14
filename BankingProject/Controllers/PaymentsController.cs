@@ -97,6 +97,32 @@ namespace BankingProject.Controllers
             return PartialView("_NewPaymentPartial", viewModel);
         }
 
+        [HttpGet]
+        public IActionResult PayElectricity()
+        {
+            var userId = userManager.GetUserId(User);
+            var customer = customerService.GetCustomerFromUserId(userId);
+            var viewModel = new NewPaymentViewModel()
+            {
+                BanksAccount = customer.BankAccounts,
+                PaymentStatus = NewPaymentStatus.NotInitiated
+            };
+            return PartialView("_payElectricityPartial", viewModel);
+        }
+
+        [HttpGet]
+        public IActionResult PayTelephone()
+        {
+            var userId = userManager.GetUserId(User);
+            var customer = customerService.GetCustomerFromUserId(userId);
+            var viewModel = new NewPaymentViewModel()
+            {
+                BanksAccount = customer.BankAccounts,
+                PaymentStatus = NewPaymentStatus.NotInitiated
+            };
+            return PartialView("_payTelephonePartial", viewModel);
+        }
+
         [HttpPost]
         public IActionResult New([FromForm]NewPaymentViewModel paymentData)
         {
@@ -110,6 +136,96 @@ namespace BankingProject.Controllers
                 paymentData.BankAccountId == null                
                 )
                 return PartialView("_NewPaymentPartial", viewModelResult);
+
+            ModelState.Clear();
+            try
+            {
+                var userId = userManager.GetUserId(User);
+                paymentsService.CreateAccountPayment(userId,
+                                                    paymentData.BankAccountId.Value,
+                                                    paymentData.Amount,
+                                                    paymentData.ExternalName,
+                                                    paymentData.ExternalIBAN,
+                                                    "");
+
+                viewModelResult.PaymentMessage = "Done";
+                viewModelResult.PaymentStatus = NewPaymentStatus.Created;
+            }
+            catch (NotEnoughFundsException)
+            {
+                viewModelResult.PaymentStatus = NewPaymentStatus.Failed;
+                viewModelResult.PaymentMessage = "Not enough funds available";
+            }
+            catch (Exception e)
+            {
+                logger.LogError("Failed to make payment {@Exception}", e.Message);
+                logger.LogDebug("Failed to see payment {@ExceptionMessage}", e);
+                viewModelResult.PaymentStatus = NewPaymentStatus.Failed;
+            }
+            //return PartialView("_NewPaymentPartial", viewModelResult);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult PayElectricity([FromForm] NewPaymentViewModel paymentData)
+        {
+            paymentData.ExternalIBAN = "1111";
+            paymentData.ExternalName = "Electricity";
+            NewPaymentViewModel viewModelResult = new NewPaymentViewModel()
+            {
+                PaymentStatus = NewPaymentStatus.Failed
+            };
+
+            if (!ModelState.IsValid ||
+                paymentData == null ||
+                paymentData.BankAccountId == null
+                )
+                return PartialView("_payElectricityPartial", viewModelResult);
+
+            ModelState.Clear();
+            try
+            {
+                var userId = userManager.GetUserId(User);
+                paymentsService.CreateAccountPayment(userId,
+                                                    paymentData.BankAccountId.Value,
+                                                    paymentData.Amount,
+                                                    paymentData.ExternalName,
+                                                    paymentData.ExternalIBAN,
+                                                    "");
+
+                viewModelResult.PaymentMessage = "Done";
+                viewModelResult.PaymentStatus = NewPaymentStatus.Created;
+            }
+            catch (NotEnoughFundsException)
+            {
+                viewModelResult.PaymentStatus = NewPaymentStatus.Failed;
+                viewModelResult.PaymentMessage = "Not enough funds available";
+            }
+            catch (Exception e)
+            {
+                logger.LogError("Failed to make payment {@Exception}", e.Message);
+                logger.LogDebug("Failed to see payment {@ExceptionMessage}", e);
+                viewModelResult.PaymentStatus = NewPaymentStatus.Failed;
+            }
+            //return PartialView("_NewPaymentPartial", viewModelResult);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult PayTelephone([FromForm] NewPaymentViewModel paymentData)
+        {
+            paymentData.ExternalIBAN = "2222";
+            paymentData.ExternalName = "Telephone";
+            NewPaymentViewModel viewModelResult = new NewPaymentViewModel()
+            {
+                PaymentStatus = NewPaymentStatus.Failed
+            };
+
+            if (!ModelState.IsValid ||
+                paymentData == null ||
+                paymentData.BankAccountId == null
+                )
+                return PartialView("_payTelephonePartial", viewModelResult);
 
             ModelState.Clear();
             try

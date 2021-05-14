@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BankingProject.ApplicationLogic.Model.Customer>
+﻿@model BankingProject.ViewModel.Customers.CustomersWithNrViewModelcs
 
 @{
     ViewData["Title"] = "View";
@@ -7,8 +7,14 @@
 <h1>Users</h1>
 <br /><br />
 <div>
-    <p>Nr of clients: @Model.Count()</p>
+    <p>Nr of clients: @Model.CustomersNumber</p>
 </div>
+<form asp-controller="Customers" asp-action="Index">
+    <p>
+        Name: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -22,7 +28,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Customers) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)

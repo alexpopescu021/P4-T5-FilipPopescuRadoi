@@ -95,6 +95,26 @@ namespace BankingProject.Controllers
             }
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(string IBAN, decimal Balance, string Currency)
+        {
+            var account = new BankAccount();
+            account.IBAN = IBAN;
+            account.Balance = Balance;
+            account.Currency = Currency;
+            var customer = customerService.GetCustomerFromUserId(userManager.GetUserId(User));
+            account.CustomerId = customer.Id;
+            accountsService.AddAccount(account);
+            customer.BankAccounts.Add(account);
+            return RedirectToAction(nameof(Index));
+        }
+
         public IActionResult Details([FromRoute] Guid id)
         {
             string userId = userManager.GetUserId(User);

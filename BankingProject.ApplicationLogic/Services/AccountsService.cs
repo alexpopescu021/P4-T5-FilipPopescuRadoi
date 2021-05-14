@@ -48,6 +48,9 @@ namespace BankingProject.ApplicationLogic.Services
             var customer = customerService.GetCustomerFromUserId(userId);
             return customer.GetFilteredAccountTransactions(accountId, filter);
         }
-
+        public void AddAccount(BankAccount account)
+        {
+            customerRepository.AddBankAccount(account);
+        }
     }
 }

@@ -79,5 +79,10 @@ namespace BankingProject.DataAccess.Repos
             dbContext.SaveChanges();
             return true;
         }
+        public void AddBankAccount(BankAccount account)
+        {
+            dbContext.Add(account);
+            dbContext.SaveChanges();
+        }
     }
 }
