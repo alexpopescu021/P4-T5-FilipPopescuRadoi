@@ -169,7 +169,7 @@ namespace BankingProject.Controllers
         [HttpPost]
         public IActionResult PayElectricity([FromForm] NewPaymentViewModel paymentData)
         {
-            paymentData.ExternalIBAN = "1111";
+            paymentData.ExternalIBAN = "ElectricIban";
             paymentData.ExternalName = "Electricity";
             NewPaymentViewModel viewModelResult = new NewPaymentViewModel()
             {
@@ -214,7 +214,7 @@ namespace BankingProject.Controllers
         [HttpPost]
         public IActionResult PayTelephone([FromForm] NewPaymentViewModel paymentData)
         {
-            paymentData.ExternalIBAN = "2222";
+            paymentData.ExternalIBAN = "PhoneIban";
             paymentData.ExternalName = "Telephone";
             NewPaymentViewModel viewModelResult = new NewPaymentViewModel()
             {

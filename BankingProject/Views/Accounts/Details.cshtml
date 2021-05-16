@@ -5,21 +5,6 @@
     ViewData["Title"] = "Account Details";
 }
 
-@*$(document).ready(function () {
-            loadTable();
-        });
-
-
-
-        function loadTable(modalName) {
-            loadServerPartialView("#songsTableContainer", "/Songs/SongsTable").done(function () {
-                $('#Songs').DataTable({ responsive: true, "lengthMenu": [5, 10, 25, 50] });
-            });
-            $(modalName).modal('hide');
-        }
-        $(function () {
-            $('#modal').modal('toggle');
-        });*@
 @section Scripts{
 
     <partial name="_ValidationScriptsPartial" />
@@ -42,7 +27,7 @@
             $('#modal').modal('toggle');
         });
 
-    @*function searchTransaction() {
+    function searchTransaction() {
         var filterValue = $("#filterText").val();
         loadServerPartialView("#transactionsContainer", "/Accounts/@Model.BankAccount.Id/Transactions?searchString=" + filterValue);
         }
@@ -66,7 +51,7 @@
                 loadServerPartialView("#balanceContainer", "/Accounts/@Model.BankAccount.Id/AccountBalance");
 
             });
-    });*@
+    });
     </script>
 }
 
@@ -108,7 +93,7 @@
     </div>
 </div>
 <br />
-<div class="d-flex flex-column flex-md-row">
+@*<div class="d-flex flex-column flex-md-row">
     <div class="d-flex flex-column flex-grow-1">
         <a asp-controller="Accounts" asp-action="TransactionsReport" asp-route-accountid="@Model.BankAccount.Id" class="btn btn-light light-button mr-0 mr-md-auto mb-4"><i class="fas fa-file-excel"></i> Export</a>
     </div>
@@ -117,10 +102,10 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-filter"></i></span>
             </div>
-            @*<input id="filterText" onkeyup="searchTransaction();" type="text" placeholder="Filter..." class="form-control" />*@
+            <input id="filterText" onkeyup="searchTransaction();" type="text" placeholder="Filter..." class="form-control" />
         </div>
     </div>
-</div>
+</div>*@
 <div id="transactionsContainer">
 
 </div>
