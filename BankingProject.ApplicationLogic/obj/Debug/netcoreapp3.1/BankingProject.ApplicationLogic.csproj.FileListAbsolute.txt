@@ -25,3 +25,6 @@ C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject.Application
 C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\obj\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.csproj.CoreCompileInputs.cache
 C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\obj\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.dll
 C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\obj\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.pdb
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\bin\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.runtimeconfig.json
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\bin\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.runtimeconfig.dev.json
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProject.ApplicationLogic\obj\Debug\netcoreapp3.1\BankingProject.ApplicationLogic.genruntimeconfig.cache
