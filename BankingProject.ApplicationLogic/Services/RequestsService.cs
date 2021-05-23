@@ -35,9 +35,10 @@ namespace BankingProject.ApplicationLogic.Services
         {
             return requestRepository.Update(request);
         }
-        public void AddRequest(Request request)
+        public Request AddRequest(Request request)
         {
             var req= requestRepository.Add(request);
+            return request;
         }
     }
 }

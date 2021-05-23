@@ -8,7 +8,7 @@ namespace BankingProject.ApplicationLogic.Model
 {
     public class Customer : DataEntity
     {
-        public Guid UserId { get; private set; }
+        public Guid UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string SocialId { get; set; }

@@ -10,9 +10,9 @@ namespace BankingProject.ApplicationLogic.Services
     {
         private readonly ICustomerRepository customerRepository;
 
-        public CustomerService(IPersistenceContext persistenceContext)
+        public CustomerService(ICustomerRepository customerRepository)
         {
-            customerRepository = persistenceContext.CustomerRepository;
+            this.customerRepository = customerRepository;
         }
         public Customer GetCustomerFromUserId(string userId)
         {
