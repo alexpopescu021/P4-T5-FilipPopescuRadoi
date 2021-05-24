@@ -197,3 +197,10 @@ C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Rele
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\xunit.execution.dotnet.dll
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\BankingProject.ApplicationLogic.dll
 C:\Users\Alina\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\BankingProject.ApplicationLogic.pdb
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\Castle.Core.dll
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\Moq.dll
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\xunit.assert.dll
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\xunit.execution.dotnet.dll
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\BankingProject.ApplicationLogic.dll
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\BankingProject.ApplicationLogic.pdb
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\obj\Release\netcoreapp3.1\BankingProjectTests.csprojAssemblyReference.cache

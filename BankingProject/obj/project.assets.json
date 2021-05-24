@@ -10010,19 +10010,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alina\\.nuget\\packages\\": {}
+    "C:\\Users\\alexp\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\BankingProject.csproj",
+      "projectUniqueName": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\BankingProject.csproj",
       "projectName": "BankingProject",
-      "projectPath": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\BankingProject.csproj",
-      "packagesPath": "C:\\Users\\Alina\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\obj\\",
+      "projectPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\BankingProject.csproj",
+      "packagesPath": "C:\\Users\\alexp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Alina\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alexp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10036,11 +10041,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj": {
-              "projectPath": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj"
+            "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj": {
+              "projectPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.ApplicationLogic\\BankingProject.ApplicationLogic.csproj"
             },
-            "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess\\BankingProject.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Alina\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess\\BankingProject.DataAccess.csproj"
+            "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess\\BankingProject.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\alexp\\source\\repos\\P4-T5-FilipPopescuRadoi\\BankingProject.DataAccess\\BankingProject.DataAccess.csproj"
             }
           }
         }

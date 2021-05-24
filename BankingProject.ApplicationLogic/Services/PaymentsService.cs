@@ -20,6 +20,10 @@ namespace BankingProject.ApplicationLogic.Services
             this.customerService = customerService;
         }
 
+        public PaymentsService(IBaseRepository<Transaction> @object)
+        {
+        }
+
         public Transaction CreateAccountPayment(string userId, Guid account, decimal amount, string destinationName, string destinationIBAN, string details)
         {
             var sendingCustomer = customerService.GetCustomerFromUserId(userId);
@@ -92,5 +96,7 @@ namespace BankingProject.ApplicationLogic.Services
 
             return paymentsList.AsEnumerable();
         }
+
+
     }
 }

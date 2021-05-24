@@ -14,6 +14,10 @@ namespace BankingProject.ApplicationLogic.Services
         {
             this.customerRepository = customerRepository;
         }
+        public IEnumerable<Customer> FindByLastName(string name)
+        {
+            return customerRepository.FindByLastName(name);
+        }
         public Customer GetCustomerFromUserId(string userId)
         {
             Guid idToSearch = Guid.Parse(userId);

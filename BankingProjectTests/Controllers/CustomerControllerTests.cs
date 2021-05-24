@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
+using System.IO;
 
 namespace BankingProjectTests.Controllers
 {
@@ -48,6 +50,53 @@ namespace BankingProjectTests.Controllers
 
             Assert.IsNotNull(customers);
             Assert.AreEqual(expectedCustomers, customers);
+        }
+
+        [TestMethod]
+        public void FindByLastNameTest()
+        {
+            Mock<ICustomerRepository> mockCustomerRepo = new Mock<ICustomerRepository>();
+           
+            var details = new ContactDetails
+            {
+                Id = Guid.NewGuid(),
+                Address = "test",
+                AlternatePhoneNo = "test",
+                City = "test",
+                Country = "test",
+                Email = "test",
+                PhoneNo = "test"
+            };
+            var customer1 = new Customer()
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "ala",
+                LastName = "bala",
+                UserId = Guid.NewGuid(),
+                ContactDetails = details
+            };
+
+            var customer2 = new Customer()
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "asadsasd",
+                LastName = "bala",
+                UserId = Guid.NewGuid()
+            };
+
+            IEnumerable<Customer> enumerable = Enumerable.Empty<Customer>();
+            IQueryable<Customer> expectedCustomers = enumerable.Prepend(customer1).Prepend(customer2).AsQueryable();
+            mockCustomerRepo.Setup(x => x.FindByLastName(customer1.LastName)).Returns(expectedCustomers);
+
+            CustomerService customerService = new CustomerService(mockCustomerRepo.Object);
+            var customersWithTheSameName = customerService.FindByLastName(customer1.LastName);
+
+            Assert.IsNotNull(customersWithTheSameName);
+            Assert.IsNotNull(expectedCustomers);
+            Assert.AreEqual(customersWithTheSameName, expectedCustomers);
+            //File.WriteAllText(@"C:\AdHocConsole\" + "test" + ".txt", customer1.ContactDetails.Address.ToString());
+
+            //Assert.AreEqual(customer1.ContactDetails, expectedCustomer.ContactDetails);
         }
     }
 }
