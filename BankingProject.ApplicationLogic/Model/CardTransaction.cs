@@ -14,10 +14,10 @@ namespace BankingProject.ApplicationLogic.Model
     public class CardTransaction : DataEntity
     {
 
-        public virtual Transaction Transaction { get; private set; }
-        public CardTransactionType TransactionType { get; private set; }
+        public virtual Transaction Transaction { get; set; }
+        public CardTransactionType TransactionType { get; set; }
 
-        protected CardTransaction()
+        public CardTransaction()
         {
         }
 

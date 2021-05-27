@@ -23,6 +23,10 @@ namespace BankingProject.ApplicationLogic.Services
             this.paymentsService = paymentsService;
             this.persistenceContext = persistenceContext;
         }
+        public CardServices(ICardRepository cardRepo)
+        {
+            this.cardRepository = cardRepo;
+        }
         public Card GetCardByCardId(Guid CardId)
         {
             return cardRepository.GetById(CardId);

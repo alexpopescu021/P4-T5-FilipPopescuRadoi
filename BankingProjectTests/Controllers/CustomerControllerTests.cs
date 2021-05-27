@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 using System.IO;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
 
 namespace BankingProjectTests.Controllers
 {
@@ -97,6 +99,62 @@ namespace BankingProjectTests.Controllers
             //File.WriteAllText(@"C:\AdHocConsole\" + "test" + ".txt", customer1.ContactDetails.Address.ToString());
 
             //Assert.AreEqual(customer1.ContactDetails, expectedCustomer.ContactDetails);
+        }
+
+        [TestMethod]
+        public void UpdateCustomer()
+        {
+            Mock<ICustomerRepository> mockCustomerRepository = new Mock<ICustomerRepository>();
+
+            Customer expectedCustomer1 = new Customer()
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Jane",
+                LastName = "Doe",
+                UserId = Guid.NewGuid()
+            };
+            mockCustomerRepository.Setup(x => x.Add(expectedCustomer1)).Returns(expectedCustomer1);
+
+            CustomerService customerService = new CustomerService(mockCustomerRepository.Object);
+            expectedCustomer1.FirstName = "Test";
+            customerService.UpdateCustomer(expectedCustomer1);
+
+            Assert.IsNotNull(expectedCustomer1);
+            Assert.AreEqual("Test", expectedCustomer1.FirstName);
+        }
+        
+
+        [TestMethod]
+        public void GetCustomerFromUserId()
+        {
+            Mock<ICustomerRepository> mockCustomerRepository = new Mock<ICustomerRepository>();
+            Mock<UserManager<IdentityUser>> _userManager = new Mock<UserManager<IdentityUser>>();
+
+            IdentityUser user = new IdentityUser()
+            { 
+                Id = "05F5C49A-D53A-4407-8AC6-71AB4959DEB7",
+                UserName = "Test",
+                Email = "test@gmail.com"
+
+            };
+
+            _userManager.Setup(x => x.CreateAsync(user)).ReturnsAsync(IdentityResult.Success); ;
+
+            Customer expectedCustomer1 = new Customer()
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Jane",
+                LastName = "Doe",
+                UserId = Guid.Parse("05F5C49A-D53A-4407-8AC6-71AB4959DEB7")
+            };
+            mockCustomerRepository.Setup(x => x.Add(expectedCustomer1)).Returns(expectedCustomer1);
+
+            CustomerService customerService = new CustomerService(mockCustomerRepository.Object);
+            Customer customer1 = customerService.GetCustomerFromUserId("05F5C49A-D53A-4407-8AC6-71AB4959DEB7");
+
+            Assert.IsNotNull(customer1);
+            Assert.AreEqual(customer1, expectedCustomer1);
+
         }
     }
 }
