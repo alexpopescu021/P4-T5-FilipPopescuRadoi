@@ -311,3 +311,7 @@ C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Re
 C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\EntityFramework.dll
 C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\Microsoft.AspNet.Identity.Core.dll
 C:\Users\Teo\Documents\GitHub\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\EntityFramework.SqlServer.dll
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\EntityFramework.dll
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\Microsoft.AspNet.Identity.Core.dll
+C:\Users\alexp\source\repos\P4-T5-FilipPopescuRadoi\BankingProjectTests\bin\Release\netcoreapp3.1\Microsoft.AspNet.Identity.EntityFramework.dll

@@ -128,32 +128,23 @@ namespace BankingProjectTests.Controllers
         public void GetCustomerFromUserId()
         {
             Mock<ICustomerRepository> mockCustomerRepository = new Mock<ICustomerRepository>();
-            Mock<UserManager<IdentityUser>> _userManager = new Mock<UserManager<IdentityUser>>();
 
-            IdentityUser user = new IdentityUser()
-            { 
-                Id = "05F5C49A-D53A-4407-8AC6-71AB4959DEB7",
-                UserName = "Test",
-                Email = "test@gmail.com"
-
-            };
-
-            _userManager.Setup(x => x.CreateAsync(user)).ReturnsAsync(IdentityResult.Success); ;
+            //_userManager.Setup(x => x.CreateAsync(user,"TestPassword")).ReturnsAsync(IdentityResult.Success); ;
 
             Customer expectedCustomer1 = new Customer()
             {
                 Id = Guid.NewGuid(),
                 FirstName = "Jane",
                 LastName = "Doe",
-                UserId = Guid.Parse("05F5C49A-D53A-4407-8AC6-71AB4959DEB7")
+                UserId = Guid.Parse("717f05c0-d3dc-4628-8ee8-77058db72e2e")
             };
-            mockCustomerRepository.Setup(x => x.Add(expectedCustomer1)).Returns(expectedCustomer1);
+            mockCustomerRepository.Setup(x => x.GetCustomerByUserId(expectedCustomer1.UserId)).Returns(expectedCustomer1);
 
             CustomerService customerService = new CustomerService(mockCustomerRepository.Object);
-            Customer customer1 = customerService.GetCustomerFromUserId("05F5C49A-D53A-4407-8AC6-71AB4959DEB7");
+            var customer1 = customerService.GetCustomerFromUserId("717f05c0-d3dc-4628-8ee8-77058db72e2e");
 
             Assert.IsNotNull(customer1);
-            Assert.AreEqual(customer1, expectedCustomer1);
+            Assert.AreEqual(customer1.Id, expectedCustomer1.Id);
 
         }
     }

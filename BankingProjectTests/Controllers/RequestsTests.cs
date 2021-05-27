@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace BankingProjectTests.Controllers
 {
     [TestClass]
-    public class RequestsControllerTests
+    public class RequestsTests
     {
         [TestMethod]
         public void GetRequests()

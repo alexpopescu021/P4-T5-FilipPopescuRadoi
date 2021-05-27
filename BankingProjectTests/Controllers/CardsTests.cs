@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -35,6 +36,8 @@ namespace BankingProjectTests.Controllers
             this.MockCardRepository = mockCardRepository.Object;
         }
 
+
+        public TestContext TestContext { get; set; }
 
         [TestMethod]
         public void AddCard()
@@ -85,10 +88,28 @@ namespace BankingProjectTests.Controllers
             Assert.AreEqual(card2, expectedCard2);
         }
 
-        /*[TestMethod]
+        [TestMethod]
         public void GetAllCardTransactions()
         {
             Mock<ICardRepository> mockRepository = new Mock<ICardRepository>();
+
+           
+
+            var transaction = new Transaction()
+            {
+                Id = Guid.Parse("EFD8A88F-EF17-4990-96D6-4E684A612EE6"),
+                ExternalIBAN = "2817312313",
+                ExternalName = "Test",
+                Amount = 100,
+                Time = DateTime.Now,
+                Details = "test test",
+                Status = TransactionStatus.Accepted,
+                BankAccountId = Guid.NewGuid()
+            };
+
+            var cardTransaction = CardTransaction.Create(transaction, CardTransactionType.Online);
+            ICollection<CardTransaction> cardTransactions = new Collection<CardTransaction>();
+            cardTransactions.Add(cardTransaction);
 
             Card expectedCard1 = new Card
             {
@@ -96,52 +117,19 @@ namespace BankingProjectTests.Controllers
                 SerialNumber = "12345678",
                 CVV = 123,
                 CreateDate = DateTime.Now,
+                CardTransactions = cardTransactions
             };
 
 
-            expectedCard1.CardTransactions.Add(new CardTransaction()
-            { 
-                Transaction = new Transaction() {
-                    Id = Guid.NewGuid(),
-                    ExternalIBAN = "2817312313",
-                    ExternalName = "Test",
-                    Amount = 100,
-                    Time = DateTime.Now,
-                    Details = "test test",
-                    Status = TransactionStatus.Accepted,
-                    BankAccountId = Guid.NewGuid()
-                },
-                TransactionType = CardTransactionType.Online
-   
-            }
-                
-                );
-
-
-            //CardTransactionType transactionType = CardTransactionType.Online;
-
-            //CardTransaction cardTransaction = new CardTransaction();
-            //Transaction transaction = new Transaction()
-            //{ 
-            //    Id = Guid.NewGuid(),
-            //    ExternalIBAN = "2817312313",
-            //    ExternalName = "Test",
-            //    Amount = 100,    
-            //    Time = DateTime.Now,
-            //    Details = "test test",
-            //    Status =TransactionStatus.Accepted,
-            //    BankAccountId = Guid.NewGuid()
-            //};
-
             //cardTransaction = CardTransaction.Create(transaction, transactionType);
-
+            expectedCard1.CardTransactions.Append(cardTransaction);
             //expectedCard1.CardTransactions.Add(cardTransaction);
 
 
             mockRepository.Setup(x => x.GetById(Guid.Parse("22378E12-AAE4-4F28-AFBB-9D83A8B24A43"))).Returns(expectedCard1);
             
             IEnumerable<CardTransaction> enumerable = Enumerable.Empty<CardTransaction>();
-            IQueryable<CardTransaction> expectedTransactions = enumerable.Prepend(expectedCard1.CardTransactions).AsQueryable();
+            IQueryable<CardTransaction> expectedTransactions = enumerable.Prepend(cardTransaction).AsQueryable();
             //mockRepository.Setup(x => x.GetById(Guid.Parse("22378E12-AAE4-4F28-AFBB-9D83A8B24A43"))).Returns(expectedTransactions);
 
             CardServices cardService = new CardServices(mockRepository.Object);
@@ -149,6 +137,23 @@ namespace BankingProjectTests.Controllers
 
             Assert.IsNotNull(transactions);
             Assert.AreEqual(expectedCard1.CardTransactions, transactions);
-        }*/
+        }
+
+        [TestMethod]
+        public void CanUpdateCard()
+        {
+            // Find a product by id
+            Card testCard = this.MockCardRepository.GetById(Guid.Parse("4CE11219-5BCC-40DA-843B-F6902D1D64E6"));
+
+            // Change one of its properties
+            testCard.CVV = 111;
+            
+
+            // Save our changes.
+            this.MockCardRepository.Update(testCard);
+
+            // Verify the change
+            Assert.AreEqual(111, this.MockCardRepository.GetById(Guid.Parse("4CE11219-5BCC-40DA-843B-F6902D1D64E6")).CVV);
+        }
     }
 }
